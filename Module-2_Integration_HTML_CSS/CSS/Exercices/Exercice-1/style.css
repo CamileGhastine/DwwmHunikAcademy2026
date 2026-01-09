@@ -1,0 +1,20 @@
+body {
+    background-color: pink;
+}
+h1 {
+    color:blue;
+    text-decoration: underline;
+}
+
+p {
+    border: solid blue;
+    text-align: center;
+}
+.rouge {
+    color: red;
+}
+
+
+        
+
+

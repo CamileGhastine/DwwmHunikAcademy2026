@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice HTML Difficile</title>
+</head>
+<body>
+    <header>
+        <h1>Tutoriel : Les Fondamentaux du Web</h1>
+        <p>Un guide complet pour débutants</p>
+    </header>
+
+    <nav>
+        <h2>Table des matières</h2>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#html">HTML</a>
+                <ul>
+                    <li><a href="#html-balises">Les balises</a></li>
+                    <li><a href="#html-structure">La structure</a></li>
+                </ul>
+            </li>
+            <li><a href="#ressources">Ressources</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="intro">
+            <h2>Introduction</h2>
+            <p>Le web est construit sur trois piliers : HTML, CSS et JavaScript.</p>
+            <figure>
+                <img src="https://www.easy-micro.org/images/lecons/html/formation-html.jpg" alt="Les 3 piliers du web">
+                <figcaption>Figure 1 : Les trois technologies fondamentales</figcaption>
+            </figure>
+        </article>
+
+        <article id="html">
+            <h2>HTML - HyperText Markup Language</h2>
+
+            <p>HTML est le langage de balisage pour créer des pages web.</p>
+
+            <section id="html-balises">
+                <h3>Les balises HTML</h3>
+                <p>Une balise est délimitée par des chevrons :</p>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Balise</th>
+                            <th>Utilité</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;p&gt;</td>
+                            <td>Paragraphe</td>
+                            <td>&lt;p&gt;Du texte&lt;/p&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;img&gt;</td>
+                            <td>Image</td>
+                            <td>&lt;img src="..."&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;a&gt;</td>
+                            <td>Lien</td>
+                            <td>&lt;a href="..."&gt;Lien&lt;/a&gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Les balises orphelines</h4>
+                <ul>
+                    <li>&lt;br&gt; - Retour à la ligne</li>
+                    <li>&lt;hr&gt; - Ligne horizontale</li>
+                    <li>&lt;img&gt; - Image</li>
+                    <li>&lt;input&gt; - Champ de saisie</li>
+                    <li>&lt;meta&gt; - Métadonnées</li>
+                </ul>
+            </section>
+
+            <section id="html-structure">
+                <h3>La structure d'une page HTML</h3>
+                <p>Une page HTML respecte toujours cette hiérarchie :</p>
+                <ol>
+                    <li>&lt;!DOCTYPE html&gt;</li>
+                    <li>&lt;html&gt;
+                        <ol>
+                            <li>&lt;head&gt;
+                                <ul>
+                                    <li>&lt;meta&gt;</li>
+                                    <li>&lt;title&gt;</li>
+                                </ul>
+                            </li>
+                            <li>&lt;body&gt;
+                                <ul>
+                                    <li>&lt;header&gt;</li>
+                                    <li>&lt;nav&gt;</li>
+                                    <li>&lt;main&gt;</li>
+                                    <li>&lt;footer&gt;</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <aside id="ressources">
+            <h2>Ressources recommandées</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+                <li><a href="https://html.spec.whatwg.org/" target="_blank">Spécification HTML officielle</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2024 Tutoriel Web | <a href="#top">Retour au haut</a></p>
+    </footer>
+</body>
+</html>
