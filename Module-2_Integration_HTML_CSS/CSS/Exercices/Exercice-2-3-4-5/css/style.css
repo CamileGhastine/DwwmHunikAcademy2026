@@ -1,0 +1,73 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(219, 219, 219);
+    height: 100%;
+}
+p {
+    padding: 5px 0 5px 0;
+}
+
+/* Style du footer et du header*/
+footer, header {
+    background-color: rgb(38, 44, 83);
+    color: white;
+    text-align: center;
+}
+footer>p>a, header>p>a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px 0 15px;
+}
+.nav {
+    background-color: rgb(50, 50, 133);
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Style de l'affichage du produit */
+.product {
+    background-color: gray;
+    width: 60%;
+    margin: 30px auto 30px auto;
+}
+.product-detail {
+    background-color: white;
+    padding: 10px 0 0 20px;
+}
+.photo {
+    font-size: 50px;
+    padding: 50px 0;
+    text-align: center;
+}
+.description {
+    color: gray;
+    padding-top: 10px;
+}
+
+.price {
+    color: green;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.button {
+    text-align: center;
+    margin: 10px -15px 10px -30px;
+}
+button {
+    color: white;
+    width: 90%;
+    height: 40px;
+    background-color: rgb(0, 153, 255);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
