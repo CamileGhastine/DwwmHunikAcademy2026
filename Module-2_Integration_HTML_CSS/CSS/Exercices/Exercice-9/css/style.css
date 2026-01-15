@@ -137,6 +137,7 @@ button:hover {
     }
 
     code {
+        display: block;
         width: 100%;
         background-color: black;
         color: green;
