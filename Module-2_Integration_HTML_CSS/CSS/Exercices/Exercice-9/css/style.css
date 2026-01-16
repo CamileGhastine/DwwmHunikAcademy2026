@@ -90,6 +90,7 @@ button {
 
 button:hover {
     background-color: #5568d3;
+    color: white;
 }
 
 /* Responsive tablette uniquement */
@@ -148,4 +149,5 @@ button:hover {
     .pseudo-code {
         margin: 5px 0 5px 20px;
     }
+    
 }
