@@ -1,0 +1,11 @@
+services:
+    # Déclaration d’un service (un conteneur)
+  mon-site:
+    build: .                        # Chemin du Dockerfile
+    image: image-mon-site           # Nom de l’image Docker créée
+    container_name: mon-site        # Nom du conteneur créé
+    ports:
+      - "8080:80"                   # Redirige le port 8080 de la machine vers le port 80 du conteneur (Nginx)
+    volumes:
+      - .:/usr/share/nginx/html     # Partage le dossier du projet avec le conteneur 
+                                    # pour voir les changements sans reconstruire l’image
