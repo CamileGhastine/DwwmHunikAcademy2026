@@ -108,15 +108,12 @@ echo 'Hommes : ' . $hommes;
 echo '<br>';
 echo '<br>';
 
-// Exercice 10
-$notes = [
-    'Jean' => 11,
-    'Reda' => 13,
-    'Julie' => 18,
-    'Kayla' => 8,
-];
+// exercie 11
 
-foreach ($notes as $prenom => $note) {
-    echo $prenom . ' : ' . $note . '/20';
+echo '<br>';
+for ($i = 1; $i <= 8; $i++) {
+    for ($j = 1; $j <= 8; $j++) {
+        echo '⭐'; 
+    }
     echo '<br>';
 }
