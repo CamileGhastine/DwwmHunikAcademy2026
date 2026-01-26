@@ -1,23 +1,26 @@
 <?php
 
-// Exercice 2
-
 
 $a = [12, 50, -1, 8];
 
-// 1
+echo sum($a);
+echo '<br>';
+echo sum([12, 50, -1, 8]);
+echo '<br>';
+echo sum([12, 41, -100, 69, 81, 75, 110]);
+echo '<br>';
 
-function maxNumber(array $numberList) : float
+function sum(array $listNumber) : float
 {
-    $maxNumber = 0;
-    
-    foreach ($numberList as $key => $number) {
-        if ($maxNumber < $number) {
-            $maxNumber = $number;
-        }
+    $sum = 0;
+
+    foreach ($listNumber as $value) {
+        $sum += $value;
     }
 
-    return $maxNumber;
+    return $sum;
 }
 
-var_dump(maxNumber($a));
+// Cette fonction est la même sur array_sum
+
+echo array_sum($a);
