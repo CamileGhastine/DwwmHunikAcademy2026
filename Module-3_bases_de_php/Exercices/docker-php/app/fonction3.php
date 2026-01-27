@@ -1,38 +1,26 @@
 <?php
 
-/*
-function calculAverage($listNotes)
+
+$a = [12, 50, -1, 8];
+
+echo sum($a);
+echo '<br>';
+echo sum([12, 50, -1, 8]);
+echo '<br>';
+echo sum([12, 41, -100, 69, 81, 75, 110]);
+echo '<br>';
+
+function sum(array $listNumber) : float
 {
-    // Calculer la somme
     $sum = 0;
-    foreach ($listNotes as $key => $value) {
-        $sum = $sum + $value;
+
+    foreach ($listNumber as $value) {
+        $sum += $value;
     }
 
-    // Calculer le nombre d'elements
-    $nbreElements = 0;
-    foreach($listNotes as $key => $value) {
-        $nbreElements++;
-    }
-
-    return $sum / $nbreElements;
-}
-*/
-
-function calculAverage($listNotes)
-{
-    // Calculer la somme et le nombre d'éléments
-    $sum = 0;
-    $nbreElements = 0;
-
-    foreach ($listNotes as $value) {
-        $sum = $sum + $value;
-        $nbreElements++;
-    }
-
-    return $sum / $nbreElements;
+    return $sum;
 }
 
-$b = [12, 10, 20, 8];
+// Cette fonction est la même sur array_sum
 
-echo calculAverage($b);
+echo array_sum($a);

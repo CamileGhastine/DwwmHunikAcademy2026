@@ -1,16 +1,38 @@
 <?php
 
-$notes = [8, 6, 11, 2];
-
-var_dump(increaseNotes($notes));
-
-
-function increaseNotes(array $notes) : array
+/*
+function calculAverage($listNotes)
 {
-    $newNotes = [];
-    foreach ($notes as $value) {
-        $newNotes[] = $value + 2;
+    // Calculer la somme
+    $sum = 0;
+    foreach ($listNotes as $key => $value) {
+        $sum = $sum + $value;
     }
 
-    return $newNotes;
+    // Calculer le nombre d'elements
+    $nbreElements = 0;
+    foreach($listNotes as $key => $value) {
+        $nbreElements++;
+    }
+
+    return $sum / $nbreElements;
 }
+*/
+
+function calculAverage($listNotes)
+{
+    // Calculer la somme et le nombre d'éléments
+    $sum = 0;
+    $nbreElements = 0;
+
+    foreach ($listNotes as $value) {
+        $sum = $sum + $value;
+        $nbreElements++;
+    }
+
+    return $sum / $nbreElements;
+}
+
+$b = [12, 10, 20, 8];
+
+echo calculAverage($b);
