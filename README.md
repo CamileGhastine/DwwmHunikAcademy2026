@@ -7,7 +7,7 @@ Développeur web et web mobile — Promotion 2026
 - [x] Module 1 : Environnement de travail  
 - [x] Module 2 : Intégration HTML / CSS  
 - [x] Module 3 : Les bases de PHP  
-- [ ] Module 4 : Accès aux données  
+- [x] Module 4 : Accès aux données  
 - [ ] Module 5 : Organiser son code  
 - [ ] Module 6 : Les bases de JavaScript  
 - [ ] Module 7 : La POO en PHP  
