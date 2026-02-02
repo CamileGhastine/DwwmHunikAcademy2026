@@ -61,78 +61,50 @@ foreach ($students as $student) {
 <h3>Exercice 1 — Structure du projet</h3>
 
 <p>Quels sont les dossiers présents à la racine du projet ?</p>
-<div class="reponse" contenteditable="true">
-    On a deux dossiers : app (contient l'application web de notre projet) et docker (infrastructure de notre projet). On a aussi un fichier docker-compose (qui sert à orchestrer la mise en place de l'infrastructure de notre projet)   
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Combien de dossiers y a-t-il dans le dossier <code>docker/</code> ?</p>
-<div class="reponse" contenteditable="true">
-    Il y en a trois : nginx, php et mysql.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Quel fichier se trouve dans le dossier <code>docker/php/</code> ? À quoi sert-il ?</p>
-<div class="reponse" contenteditable="true">
-    Dockerfile : il sert à créé le conteneur PHP (téléchargement de l'image) et à le paramétré.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Quel fichier se trouve dans le dossier <code>docker/nginx/</code> ? À quoi sert-il ?</p>
-<div class="reponse" contenteditable="true">
-    nginx.conf : pour configurer le serveur.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Quel fichier se trouve dans le dossier <code>docker/mysql/</code> ? À quoi sert-il ?</p>
-<div class="reponse" contenteditable="true">
-    init.sql : il sert à entrée des données dans la BDD
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <h3>Exercice 2 — Le docker-compose.yml</h3>
 
 <p>Ouvrez le fichier <code>docker-compose.yml</code>. Combien de services y a-t-il définis ?</p>
-<div class="reponse" contenteditable="true">
-    Il ya 4 services (donc 4 containeurs) : nginx, php, mysql, phpmayadmin.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Sur quel port votre site web est-il accessible ?</p>
-<div class="reponse" contenteditable="true">
-    sur le port 8080. Le site est donc accessible à l'URL http://localhost:8080/
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Sur quel port est accessible phpMyAdmin ?</p>
-<div class="reponse" contenteditable="true">
-    sur le port 8081. Le site est donc accessible à l'URL <a href="http://localhost:8081/">http://localhost:8081/</a> 
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Quel est le nom de la base de données définie dans le service MySQL ?</p>
-<div class="reponse" contenteditable="true">
-    MYSQL_DATABASE: my_first_db => la BDD s'appelle my_first_db
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Quel utilisateur sera utilisé pour se connecter à MySQL ?</p>
-<div class="reponse" contenteditable="true">
-    MYSQL_USER: user => l'utilisateur s'appelle user
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Pourquoi le service <code>php</code> dépend de <code>mysql</code> ?</p>
-<div class="reponse" contenteditable="true">
-    depends_on: - mysql => il faut lancer le containeur mysql avant le containeur php sinon on risque d'avori des erreur, car PHp peut avoir besoin de mysql pour fonctionner.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Pourquoi le service <code>nginx</code> dépend de <code>php</code> ?</p>
-<div class="reponse" contenteditable="true">
-    depends_on: - php => il faut lancer le containeur php avant le containeur nginx sinon on risque d'avoir des erreurs, car nginx a besoin de php pour fonctionner.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <h3>Exercice 3 — Le Dockerfile PHP</h3>
 
 <p>Pourquoi le Dockerfile php installe <code>pdo</code> et <code>pdo_mysql</code> ?</p>
-<div class="reponse" contenteditable="true">
-    Ce sont des extension php pour communiquer avec le serveur mysql.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Le service MySQL a-t-il un Dockerfile ? Pourquoi ?</p>
-<div class="reponse" contenteditable="true">
-    Il n'a pas de Dockerfile, car l'image est installé tel quel sans extension ou modification. 
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <h3>Exercice 4 — Le fichier init.sql</h3>
 
@@ -143,24 +115,17 @@ foreach ($students as $student) {
     Pour fermer les containeur et supprimer les volumes : <code>docker compose down --volumes</code> <br>
     Pour relancer les conatineur : <code>docker compose up -d</code>
 </fieldset>
-<div class="reponse" contenteditable="true">
-    Elles servent à définir l'encodage des caractères.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 <fieldset>
     <legend>Attention</legend>
     Remettre les deux lignes et refaites les commandes : <code>docker compose down --volumes</code> & <code>docker compose up -d</code>
 </fieldset>
 
 <p>Ouvrez le fichier <code>init.sql</code>. Expliquez les 4 actions réalisez par ce fichier dans la base</p>
-<div class="reponse" contenteditable="true">
-    Cela créé un teable student et insère dedans 3 entrées (3 élèves).
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
-<p>Quand ce fichier <code>init.sql</code> est-il exécuté par MySQL ?</p>
-<div class="reponse" contenteditable="true">
-    Ce fichier est éxecuté une seul fois au premier démarrage du conteneur MySQL, quand le volume n'existe pas encore.
-
-</div>
+<p>Quand ce fichier init.sql est-il exécuté par MySQL ?</p>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <hr>
 
@@ -169,32 +134,19 @@ foreach ($students as $student) {
 <h3>Exercice 5 — Explorer la base</h3>
 
 <p>Ouvrez la base <code>my_first_db</code> et donnez le nom de la table qu'elle contient.</p>
-<div class="reponse" contenteditable="true">
-    Elle contient la table <code>studente</code>.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Cliquez sur la table. Combien de champs contient cette table ? Quels sont leurs noms ?</p>
-<div class="reponse" contenteditable="true">
-    Il ya 3 champs : id, firstname et lastname.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Combien y-a-t-il d'entrées enregistrées dans cette tables ?</p>
-<div class="reponse" contenteditable="true">
-    Il ya 3 entrées. 
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Que représente chaque entrée de cette table ?</p>
-<div class="reponse" contenteditable="true">
-    Chaque entrée représente un élève.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <p>Cliquez sur l'onglet <strong>structure</strong>. Décrire et expliquer les propriétés de chaque champs.</p>
-<div class="reponse" contenteditable="true">
-    id est de type integer. Il ne peut pas être NULL. Il s'incrémente automatiquement.<br>
-    firstname est de type varchar (maximum 100 caractères), c'est l'équivalent de string en PHP. Encodage en UTF-8. il peut être NULL. <br>
-    lastname est de type varchar (maximum 100 caractères). Encodage en UTF-8. il peut pas être NULL. <br>
-
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <h3>Exercice 6 — Ajouter des données</h3>
 
@@ -214,9 +166,7 @@ foreach ($students as $student) {
 
 <p>Ajoutez le dernier élève manquant dans la table. Vérifiez qu'il apparait dans la table et dans le navigateur.</p>
 <p>Regarder les id des élèves. Que constatez-vous lorsqu'on créé ou supprime une nouvelle entrée ?</p>
-<div class="reponse" contenteditable="true">
-    L'id de l'élève supprimé n'a pas été remplacé par le nouvel élève créé. L'élève créé a été autoincrementé à la suite de la dernière entrée. L'id supprimé ne sera jamais réutilisé.
-</div>
+<div class="reponse" contenteditable="true">Répondez ici ...</div>
 
 <hr>
 
