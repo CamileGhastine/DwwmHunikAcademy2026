@@ -234,37 +234,38 @@ foreach ($students as $student) {
 <h3>Exercice 10 — SELECT</h3>
 
 <p>Écrivez la requête pour récupérer tous les élèves de la table (aidez-vous en cliquant sur le bouton <code>SELECT *</code> ) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT * FROM student;</div>
 
 <p>Écrivez la requête pour récupérer uniquement les prénoms des élèves (aidez-vous en cliquant sur <code>SELECT</code> ) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT firstname FROM student;</div>
 
 <p>Écrivez la requête pour récupérer tous les élèves triés par nom dans l'ordre alphabétique (recherche Google) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT * FROM student ORDER BY lastname ASC;</div>
 
 <p>Même question par ordre alphabétique inversé :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT * FROM student ORDER BY lastname DESC;</div>
 
 <p>Écrivez la requête pour récupérer tous les élèves dont le nom commence par la lettre "a" (recherche Google) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT * FROM student WHERE lastname LIKE 'a%';</div>
 
 <p>Même question pour récupérer tous les élèves dont le prénom contient lettre "h" (recherche Google) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">SELECT * FROM student WHERE firstname LIKE '%h%';</div>
 
 <h3>Exercice 11 — INSERT</h3>
 
 <p>Écrivez la requête pour insérer un nouvel élève : prénom "Lucas", nom "Petit" (aidez-vous en cliquant sur <code>INSERT</code> ) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">INSERT INTO eleves (firstname, lastname) VALUES ('Lucas', 'Petit');</div>
 
 <h3>Exercice 12 — UPDATE</h3>
 
 <p>Écrivez la requête pour changer le nom de l'élève "Lucas" en "Grand" (aidez-vous en cliquant sur <code>UPDATE</code> ) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">UPDATE eleves SET lastname='Grand' WHERE firstname='Lucas' AND lastname='Petit';</div>
 
 <h3>Exercice 13 — DELETE</h3>
 
 <p>Écrivez la requête pour supprimer l'élève "Lucas Grand" (aidez-vous en cliquant sur <code>DELETE</code> ) :</p>
-<div class="reponse" contenteditable="true">Répondez ici ...</div>
+<div class="reponse" contenteditable="true">DELETE FROM eleves WHERE firstname='Lucas' AND lastname='Grand';
+...</div>
 
 <hr>
 
