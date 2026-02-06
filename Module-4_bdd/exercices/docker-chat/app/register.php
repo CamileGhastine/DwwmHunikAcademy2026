@@ -44,8 +44,8 @@ if(!empty($_POST)) {
     <h1>Enregistrement</h1>
     <form action="" method="post">
         Pseudo <input type="text" name="pseudo" value="<?php echo $pseudo ?>" required><br>
-        Mot de passe <input type="password" name="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{12,}$" required><br>
-        Vérification du mot de passe <input type="password" name="pwdVerif" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{12,}$" required><br>
+        Mot de passe <input type="password" name="pwd" required><br>
+        Vérification du mot de passe <input type="password" name="pwdVerif"  required><br>
         <?php echo $error . '<br>'; ?>
         <input type="submit" value="Enregistrement">
         <tex></tex>
@@ -71,9 +71,9 @@ function verifCredentials(string $pseudo, string $pwd, string $pwdVerif)
     }
 
     // On vérifie que le mot de passe à au moins 12 carcatères
-    if (strlen($pwd) < 12) {
-        return "Le mot de passe doit être d'au mons 12 caractères";
-    }
+    // if (strlen($pwd) < 12) {
+    //     return "Le mot de passe doit être d'au mons 12 caractères";
+    // }
 
     // Pour etre encore plus rigoureux précis on peut vérifier que le mot de passe à au moins 1 chiffre, 1 minuscule, 1 majuscule, un caractère spécial et au moins 12 caractères
     // if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{12,}$/', $pwd)) {

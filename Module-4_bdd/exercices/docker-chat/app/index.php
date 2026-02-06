@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if(isset($_SESSION['pseudo'])) {
+    $pseudo = $_SESSION['pseudo'];
+    echo "Salut " . $pseudo;
+}
+
+
 // Créer un objet PDO $pdo capable de se connecter à la BDD
 $pdo = new \PDO(
     'mysql:host=mysql;dbname=my_first_db;charset=utf8mb4',
@@ -31,9 +39,15 @@ $request->closeCursor();
     <title>Document</title>
 </head>
 <body>
+    <?php if (!isset($pseudo)) { ?>
     <p>
         <a href="register.php">Enregistrement</a> / <a href="connection.php">Connexion</a>
     </p>
+    <?php } else { ?>
+    <p>
+        <a href="deconnection.php">Déconnexion</a>
+    </p>
+    <?php } ?>
    
     <h1>La phrase du jour</h1>
         <form action="" method="post">

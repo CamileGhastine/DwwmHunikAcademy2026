@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $message ='';
 
 if (isset($_GET['register']) && $_GET['register'] === '1') {
@@ -6,12 +8,34 @@ if (isset($_GET['register']) && $_GET['register'] === '1') {
 }
 
 // si le formulaire a été soumis --> On stocker les données du formulaire dans des variables PHP
+if(!empty($_POST)) {
+    $pseudo = $_POST['pseudo'];
+    $password = $_POST['pwd'];
 
-// On récupère de la BDD le password du pseudo saisi par l'utilisateur
-
-// si les mot de passe concordent [fonnction php password_verify($pwdSaisi, $pwdFromBdd)]
+    // On récupère de la BDD le password du pseudo saisi par l'utilisateur
+    $pdo = new \PDO(
+        'mysql:host=mysql;dbname=my_first_db;charset=utf8mb4',
+        'user',
+        'pwd'
+    );
+    $sql="SELECT * FROM user WHERE pseudo=:pseudo";
+    $request = $pdo->prepare($sql);
+    $request->execute([
+        'pseudo' => $pseudo
+    ]);
+    $user = $request->fetch(PDO::FETCH_ASSOC);
+    
+    // si les mot de passe concordent [fonnction php password_verify($pwdSaisi, $pwdFromBdd)]
+    if ($user && password_verify($password, $user['password'])) {
         // on enregistre en session $_SESSION['pseudo'] = $pseudo
+        $_SESSION['pseudo'] = $pseudo;
+        header('Location: index.php');
+        exit;
+    } else {
         // Sinon on affiche un message d'erreur
+        $message = 'Les identifiants sont incorrects !';
+    }    
+}
 
 ?>
 
@@ -24,11 +48,10 @@ if (isset($_GET['register']) && $_GET['register'] === '1') {
 </head>
 <body>
     <h1>Connexion</h1>
-    <?php echo $message ?>
     <form action="" method="post">
-        Pseudo <input type="text" name="pseudo" required><br>
-        Mot de passe <input type="texte" name="pwd" required><br>
-        <input type="submit" value="Connexion">
+        Pseudo <input type="text" name="pseudo" required> <br>
+        Mot de passe <input type="password" name="pwd" rquired><br>
+        <input type="submit" value="Connexion"> <?php echo $message ?>
     </form>
     <p><a href="/">Retour à l'accueil</a></p>
 </body>
