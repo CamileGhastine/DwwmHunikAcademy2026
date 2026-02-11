@@ -1,3 +1,15 @@
+<?php
+// 1) Si le formaulaire a été soumi, alors on récupère les saisies utilisateurs ($_POST)
+// 2) On les envoie dans la BDD
+// 
+// 3) Quand vous aures réussi le 1 et le 2. Il faudra vérifier les données saisies avant de les erngistrées.
+//    si les données sont valides alors on enregistre en bdd, sinon on envoie un message pour expliquer l'erreur. 
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
