@@ -25,3 +25,16 @@ h2 {
     width: 40%;
     align-self: center;
 }
+
+@media (min-width: 769px) {
+    form {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1025px) {
+    form {
+        width: 50%;
+
+    }
+}

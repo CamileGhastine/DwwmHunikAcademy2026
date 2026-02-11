@@ -30,7 +30,7 @@
             <label for="title">Titre du projet</label>
             <input type="text" name="title" maxlength="100" required>
             <label for="description">Description du projet</label>
-            <textarea name="description" rows="10" maxlength="1000" required>sdffffff</textarea>
+            <textarea name="description" rows="10" maxlength="1000" required></textarea>
             <label for="url_git">URL github</label>
             <input type="url" name="url_git">
             <label for="">Auteur du projet</label>
