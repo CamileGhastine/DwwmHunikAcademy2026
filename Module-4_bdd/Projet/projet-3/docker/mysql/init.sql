@@ -52,7 +52,7 @@ INSERT INTO `projects` (`id`, `title`, `description`, `url_git`, `creation_date`
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` int NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
