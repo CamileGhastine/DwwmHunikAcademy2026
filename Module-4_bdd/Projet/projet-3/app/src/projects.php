@@ -1,5 +1,5 @@
 <?php
-$message = isset($_GET['message']) ? 'Le projet a été ajouté avec succès' : NULL;
+$message = isset($_GET['message']) ? 'Le projet a été ' . $_GET['message'] .' avec succès' : NULL;
 ?>
 
 
