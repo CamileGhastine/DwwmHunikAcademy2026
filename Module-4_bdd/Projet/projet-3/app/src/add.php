@@ -7,6 +7,8 @@ $request->execute();
 $users = $request->fetchall(PDO::FETCH_ASSOC);
 
 $message = NULL;
+$description = '';
+$title = '';
 
 //Si le formaulaire a été soumi
 if(!empty($_POST)) {
@@ -14,7 +16,7 @@ if(!empty($_POST)) {
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $urlGit = trim($_POST['url_git']);
-    $userId = $_POST['user_id'];
+    $userId = (int)$_POST['user_id'];
 
     // On vérifie si les chmaps comportenet des erreurs
     $message = fieldsVerify($title, $description, $userId, $urlGit);
@@ -31,6 +33,7 @@ if(!empty($_POST)) {
             'userId' => $userId
         ]);
         header('Location:projects.php?message=succes');
+        exit;
     }
 }
 
@@ -89,16 +92,16 @@ function fieldsVerify($title, $description, $userId, $urlGit) {
 
        <form action="" method="post">
             <label for="title">Titre du projet</label>
-            <input type="text" name="title" maxlength="100" required>
+            <input type="text" name="title" maxlength="100" value="<?php echo $title ?>" required>
             <label for="description">Description du projet</label>
-            <textarea name="description" rows="10" maxlength="1000" required></textarea>
+            <textarea name="description" rows="10" maxlength="1000" required><?php echo $description ?></textarea>
             <label for="url_git">URL github</label>
             <input type="text" name="url_git">
             <label for="user_id">Auteur du projet</label>
-            <select name="user_id" id="pet-select">
+            <select name="user_id" id="pet-select" required>
                 <option value="">--Veuillez choisir une auteur--</option>
                 <?php foreach ($users as $user) { ?>
-                <option value="<?php echo $user['id'] ?>"><?php echo $user['name']?></option>
+                <option value="<?php echo $user['id'] ?>"><?php echo htmlspecialchars($user['name']) ?></option>
                 <?php } ?>
             </select>
 
