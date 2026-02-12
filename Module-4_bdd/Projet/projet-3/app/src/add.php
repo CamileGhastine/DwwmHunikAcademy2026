@@ -9,6 +9,7 @@ $users = $request->fetchall(PDO::FETCH_ASSOC);
 $message = NULL;
 $description = '';
 $title = '';
+$urlGit = '';
 
 //Si le formaulaire a été soumi
 if(!empty($_POST)) {
@@ -96,7 +97,7 @@ function fieldsVerify($title, $description, $userId, $urlGit) {
             <label for="description">Description du projet</label>
             <textarea name="description" rows="10" maxlength="1000" required><?php echo $description ?></textarea>
             <label for="url_git">URL github</label>
-            <input type="text" name="url_git">
+            <input type="text" name="url_git" value="<?php echo $urlGit ?>>
             <label for="user_id">Auteur du projet</label>
             <select name="user_id" id="pet-select" required>
                 <option value="">--Veuillez choisir une auteur--</option>
