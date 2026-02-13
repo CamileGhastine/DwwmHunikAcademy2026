@@ -15,18 +15,8 @@ $message = isset($_GET['message']) ? 'Le projet a été ' . $_GET['message'] .' 
 </head>
 
 <body>
-    <header>
-        <img src="../image/photo-profil.jpg" alt="photo de profil" class="photo-profil">
-        <div class="name">Camile Ghastine</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/index.php">Accueil</a></li>
-                <li><a href="projects.php">Projets</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    <?php require('shared/_header.php'); ?>
+
     <section class="projects-section">
         <?php echo "<div style='color:green'>$message</div>" ?>
         <h1 class="section-title">Mes Projets</h2>

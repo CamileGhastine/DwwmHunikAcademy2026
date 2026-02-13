@@ -48,22 +48,10 @@ if(!empty($_POST)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/add-style.css">
     <title>Portfolio - Projets</title>
-
 </head>
 
 <body>
-    <header>
-        <img src="../image/photo-profil.jpg" alt="photo de profil" class="photo-profil">
-        <div class="name">Camile Ghastine</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/index.php">Accueil</a></li>
-                <li><a href="projects.php">Projets</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <?php require('shared/_header.php'); ?>
     
     <section class="form-section">
         <h2>Ajouter un projet</h2>
@@ -74,7 +62,7 @@ if(!empty($_POST)) {
             <label for="description">Description du projet</label>
             <textarea name="description" rows="10" maxlength="1000" required><?php echo $description ?></textarea>
             <label for="url_git">URL github</label>
-            <input type="text" name="url_git" value="<?php echo $urlGit ?>">
+            <input type="text" name="url_git" value="<?php echo htmlspecialchars($urlGit) ?>">
             <label for="user_id">Auteur du projet</label>
             <select name="user_id" id="pet-select" required>
                 <option value="">--Veuillez choisir une auteur--</option>
