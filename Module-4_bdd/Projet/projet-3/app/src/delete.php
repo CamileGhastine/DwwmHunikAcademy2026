@@ -1,7 +1,18 @@
 <?php
 session_start();
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    $user = NULL;
+}
 
 $id = $_GET['id'];
+
+if (!$user || $user['id'] !== $id) {
+    header('Location:/index.php');
+    exit;
+}
+
 if (isset($_GET['csrf_token'])) {
     $csrf_token = $_GET['csrf_token'];
 } else {

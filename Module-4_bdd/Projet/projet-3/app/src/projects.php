@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    $user = NULL;
+}
+
 $message = isset($_GET['message']) ? 'Le projet a été ' . $_GET['message'] .' avec succès' : NULL;
 ?>
 
@@ -20,7 +27,9 @@ $message = isset($_GET['message']) ? 'Le projet a été ' . $_GET['message'] .' 
     <section class="projects-section">
         <?php echo "<div style='color:green'>$message</div>" ?>
         <h1 class="section-title">Mes Projets</h2>
+        <?php if ($user) { ?>
         <p class="p-add"><a href="add.php" class="add">➕</a></p>
+        <?php } ?>
         <div class="projects-list">
             <?php 
             // Récuper tous les projets avec PDO dans la variable $projects

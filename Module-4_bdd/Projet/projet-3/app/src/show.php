@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    $user = NULL;
+}
+
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); 
 
 // Envoyer l'id de la page project.php vers la page show.php
@@ -45,9 +51,11 @@ $date = $date->format('d-m-Y');
                     <?php echo htmlspecialchars($project['description']) ?>
                 </p>
                 <div class="project-links">
-                    <a href="<?php echo htmlspecialchars($project['url_git']) ?>" class="project-link secondary">GitHub</a>                   
+                    <a href="<?php echo htmlspecialchars($project['url_git']) ?>" class="project-link secondary">GitHub</a>
+                    <?php if ($user && $user['id'] === $project['user_id']) { ?>                   
                     <div class="delete"><a href="delete.php?id=<?php echo $project['id'] ?>&csrf_token=<?php echo $_SESSION['csrf_token'] ?>" onclick="return confirmDelete()">❌</a></div>
                     <div class="update"><a href="update.php?id=<?php echo $project['id'] ?>">✏️</a></div>
+                    <?php } ?>
                 </div>
                 <div class="infos">
                     <div><?php echo $date ?></div>

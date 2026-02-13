@@ -1,4 +1,15 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    $user = NULL;
+}
+
+if (!$user) {
+    header('Location:/src/auth/connection.php');
+    exit;
+}
 
 $pdo = new PDO('mysql:dbname=my_portfolio;host=mysql;charset=UTF8', 'user', 'pwd');
 $sql = "SELECT * FROM users";

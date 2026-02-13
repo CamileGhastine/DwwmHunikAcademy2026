@@ -1,10 +1,23 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    $user = NULL;
+}
+
 // 1 - Affichage du formulaire
     // Créer le lien sur le crayon qui renvoie vers la page update
     // Créer le formulaire d'update en HTML (copier-coller à partir du create)
     // Injecter les valeurs du projet à updater dans les champs du formulaire
 
 $id = $_GET['id'];
+
+if (!$user || $user['id'] !== $id) {
+    header('Location:/index.php');
+    exit;
+}
+
 
 $pdo = new PDO('mysql:dbname=my_portfolio;host=mysql;charset=UTF8', 'user', 'pwd');
 $sql = "SELECT * FROM projects WHERE id=:id";
