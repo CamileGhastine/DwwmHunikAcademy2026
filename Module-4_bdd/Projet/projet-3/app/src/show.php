@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32)); 
+
 // Envoyer l'id de la page project.php vers la page show.php
 // Récupérer l'id du projet qu'on veut afficher grace à $_GET
 $id = $_GET['id'];
@@ -29,7 +32,6 @@ $date = $date->format('d-m-Y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/show-style.css">
     <title>Portfolio - Projets</title>
-
 </head>
 
 <body>
@@ -54,7 +56,7 @@ $date = $date->format('d-m-Y');
                 </p>
                 <div class="project-links">
                     <a href="<?php echo htmlspecialchars($project['url_git']) ?>" class="project-link secondary">GitHub</a>                   
-                    <div class="delete"><a href="">❌</a></div>
+                    <div class="delete"><a href="delete.php?id=<?php echo $project['id'] ?>&csrf_token=<?php echo $_SESSION['csrf_token'] ?>" onclick="return confirmDelete()">❌</a></div>
                     <div class="update"><a href="update.php?id=<?php echo $project['id'] ?>">✏️</a></div>
                 </div>
                 <div class="infos">
@@ -64,6 +66,11 @@ $date = $date->format('d-m-Y');
             </div>
         </div>    
     </section>
+    <script>
+        function confirmDelete() {
+            return confirm("Etes-vous sûr de vouloir Supprimer ?");
+        }
+    </script>
 
 </body>
 
