@@ -1,6 +1,15 @@
 <?php
 // Créer l'objet $pdo en récupérant les infos de connexion à la BDD dans le docker_compose
+$pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+
 // Récupérer dans la BDD tous les produits. Vérifier avec un var_dump($products)
+$sql = "SELECT * FROM product";
+$request = $pdo->prepare($sql);
+$request->execute();
+$products = $request->fetchAll(PDO::FETCH_ASSOC);
+var_dump($products);
+
+
 // Afficher tous les produits dans le HTML ci-dessous avec un foreach
 
 ?>
