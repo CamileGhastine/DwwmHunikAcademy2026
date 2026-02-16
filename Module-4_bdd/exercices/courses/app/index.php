@@ -29,7 +29,7 @@ $products = $request->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($products as $product) { ?>
         <li>
             <?php echo htmlspecialchars($product['name']) ?>
-            <a href="">❌</a>      
+            <a href="src/delete.php?id=<?php echo $product['id'] ?>">❌</a>      
             <a href="">✏️</a>
         </li>
         <?php } ?>
