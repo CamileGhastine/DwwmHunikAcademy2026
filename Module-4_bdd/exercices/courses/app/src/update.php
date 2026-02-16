@@ -9,13 +9,24 @@ $sql = "SELECT * FROM product WHERE id=$id";
 $request = $pdo->prepare($sql);
 $request->execute();
 $product = $request->fetch(PDO::FETCH_ASSOC);
-var_dump($product);
 
 // Injecter la nom du produit dans le formulaire
 
-// Si le formulaire est soumis, récupérer la saisie de l'utilisateur
-// updater la saisie dans la BDD
-// Rediriger vers la index.php
+if (!empty($_POST)) {
+    // Si le formulaire est soumis, récupérer la saisie de l'utilisateur
+    $name = $_POST['item'];
+
+    // updater la saisie dans la BDD
+    $pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "UPDATE product SET name='$name' WHERE id=$id";
+    $request = $pdo->prepare($sql);
+    $request->execute();
+
+    // Rediriger vers la index.php
+    header('Location: /index.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +38,7 @@ var_dump($product);
 </head>
 <body>
     <h1>Modifier le produit</h1>
-    <form action="update.php?id=????" method="post">            <!-- Il faut ici renseigner dynamiquement id -->
+    <form action="update.php?id=<?php echo $id ?>" method="post">            <!-- Il faut ici renseigner dynamiquement id -->
         <label for="product">Produit : </label>
         <input type="text" name="item" value="<?php echo $product['name'] ?>">
         <input type="submit" value="Modifier">
