@@ -3,8 +3,8 @@
 ## À faire
 1. Implémenter la page `index.php` [x]
 2. Implémenter la page `add.php` [x]
-3. Implémenter la page `delete.php` []
-4. Implémenter la page `update.php`
+3. Implémenter la page `delete.php` [X]
+4. Implémenter la page `update.php` []
 5. Vérifier que vous n'êtes pas victime d'une faille XSS ou d'une injection SQL
 6. Vérifier que votre code est nettoyé et bien indenté
 
