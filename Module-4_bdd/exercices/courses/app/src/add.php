@@ -10,8 +10,8 @@ if (!empty($_POST)) {
     $sql = "INSERT INTO product(name) VALUES (:name)";
     $request = $pdo->prepare($sql);
     $request->execute(['name' => $name]);
-    var_dump(0);
+
     // Rediriger vers la index.php
+    header('Location: /index.php');
+    exit;
 }
-
-
