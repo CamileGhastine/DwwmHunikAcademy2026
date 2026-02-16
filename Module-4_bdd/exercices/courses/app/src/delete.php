@@ -1,6 +1,5 @@
 <?php
 // dans index.php mettre un lien sur ❌ qui redirige ici (src/delete.php) en envoyant l'id du produit à supprimer
-
 // Récupérer l'id du produit à supprimer
 $id = (int)$_GET['id'];
 

@@ -29,13 +29,15 @@ $products = $request->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($products as $product) { ?>
         <li>
             <?php echo htmlspecialchars($product['name']) ?>
-            <a href="src/delete.php?id=<?php echo $product['id'] ?>">❌</a>      
+            <a href="src/delete.php?id=<?php echo $product['id'] ?>" onclick="return deleteConfirmation()">❌</a>      
             <a href="src/update.php?id=<?php echo $product['id'] ?>">✏️</a>
         </li>
         <?php } ?>
     </ul>
-
     <script>
+        function deleteConfirmation() {
+            return confirm('Etes-vous sûr de vouloir supprimmer ce produit de la liste ?');
+        }
         
     </script>
 </body>
