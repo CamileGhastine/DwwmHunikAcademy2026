@@ -7,11 +7,8 @@ $sql = "SELECT * FROM product";
 $request = $pdo->prepare($sql);
 $request->execute();
 $products = $request->fetchAll(PDO::FETCH_ASSOC);
-var_dump($products);
-
 
 // Afficher tous les produits dans le HTML ci-dessous avec un foreach
-
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +26,13 @@ var_dump($products);
         <input type="submit" value="Ajouter">
     </form>
     <ul>
+        <?php foreach ($products as $product) { ?>
         <li>
-            Tomate
+            <?php echo htmlspecialchars($product['name']) ?>
             <a href="">❌</a>      
             <a href="">✏️</a>
         </li>
+        <?php } ?>
     </ul>
 
     <script>
