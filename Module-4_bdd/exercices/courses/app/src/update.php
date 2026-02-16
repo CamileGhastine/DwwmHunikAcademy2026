@@ -29,7 +29,7 @@ var_dump($product);
     <h1>Modifier le produit</h1>
     <form action="update.php?id=????" method="post">            <!-- Il faut ici renseigner dynamiquement id -->
         <label for="product">Produit : </label>
-        <input type="text" name="item" value="">
+        <input type="text" name="item" value="<?php echo $product['name'] ?>">
         <input type="submit" value="Modifier">
     </form>
     <a href="../index.php">Retour à l'accueil</a>
