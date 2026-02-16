@@ -1,8 +1,17 @@
 <?php
+session_start();
+$tokenCsrfSession = $_SESSION['token_csrf'];
 
 // dans index.php rediriger le formulaire ici (src/add.php)
 if (!empty($_POST)) {
-   // Si le formulaire est soumis, récupérer la saisie de l'utilisateur
+    // faille CSRF sur formulaire
+    $tokenCsrf = $_POST['token_csrf'];
+    if ($tokenCsrf !== $tokenCsrfSession) {
+        header('Location: /index.php');
+        exit;
+    }
+    
+    // Si le formulaire est soumis, récupérer la saisie de l'utilisateur
     $name = $_POST['item'];
 
     if (empty($name) || strlen($name) > 50) {

@@ -13,7 +13,7 @@
 2. Vérifier les données utilisateur au moment du `add` ou de l’`update` (exemple : ne pas enregistrer de prosuit sans nom) [X]
 
 ## Super Bonus
-1. Se protéger contre la faille CSRF []
+1. Se protéger contre la faille CSRF [X]
     Icvi il n'y a pas de connexion donc le CSRF n'est pas utile, mais on va le faire pour l'entrainement
 2. Faire un HTML/CSS agréable à l’œil [pas fait]
 

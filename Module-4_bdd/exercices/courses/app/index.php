@@ -26,6 +26,7 @@ $products = $request->fetchAll(PDO::FETCH_ASSOC);
     <form action="src/add.php" method="post">
         <label for="product">Produit : </label>
         <input type="text" name="item">
+        <input type="hidden" name="token_csrf" value="<?php echo $tokenCsrf ?>">
         <input type="submit" value="Ajouter">
     </form>
     <ul>

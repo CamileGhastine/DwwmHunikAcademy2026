@@ -1,4 +1,7 @@
 <?php
+session_start();
+$tokenCsrfSession = $_SESSION['token_csrf'];
+
 // dans index.php mettre un lien sur ✏️ qui redirige ici (src/update.php) en envoyant l'id du produit à updater
 // Récupérer l'id du produit à updater
 $id = (int)$_GET['id'];
@@ -13,6 +16,13 @@ $product = $request->fetch(PDO::FETCH_ASSOC);
 // Injecter la nom du produit dans le formulaire
 
 if (!empty($_POST)) {
+    // faille CSRF sur formulaire
+    $tokenCsrf = $_POST['token_csrf'];
+    if ($tokenCsrf !== $tokenCsrfSession) {
+        header('Location: /index.php');
+        exit;
+    }
+
     // Si le formulaire est soumis, récupérer la saisie de l'utilisateur
     $name = $_POST['item'];
 
@@ -48,6 +58,7 @@ if (!empty($_POST)) {
     <form action="update.php?id=<?php echo $id ?>" method="post">            <!-- Il faut ici renseigner dynamiquement id -->
         <label for="product">Produit : </label>
         <input type="text" name="item" value="<?php echo htmlspecialchars($product['name']) ?>">
+        <input type="hidden" name="token_csrf" value="<?php echo $tokenCsrfSession ?>">
         <input type="submit" value="Modifier">
     </form>
     <a href="../index.php">Retour à l'accueil</a>
