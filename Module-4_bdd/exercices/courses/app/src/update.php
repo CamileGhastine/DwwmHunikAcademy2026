@@ -5,9 +5,9 @@ $id = $_GET['id'];
 
 // Récupérer ce produit dans la BDD
 $pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
-$sql = "SELECT * FROM product WHERE id=$id";
+$sql = "SELECT * FROM product WHERE id=:id";
 $request = $pdo->prepare($sql);
-$request->execute();
+$request->execute(['id' => $id]);
 $product = $request->fetch(PDO::FETCH_ASSOC);
 
 // Injecter la nom du produit dans le formulaire
@@ -18,9 +18,12 @@ if (!empty($_POST)) {
 
     // updater la saisie dans la BDD
     $pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
-    $sql = "UPDATE product SET name='$name' WHERE id=$id";
+    $sql = "UPDATE product SET name=:name WHERE id=:id";
     $request = $pdo->prepare($sql);
-    $request->execute();
+    $request->execute([
+        'id' => $id,
+        'name' => $name
+    ]);
 
     // Rediriger vers la index.php
     header('Location: /index.php');
