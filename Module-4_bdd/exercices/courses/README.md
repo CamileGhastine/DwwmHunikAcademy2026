@@ -9,8 +9,8 @@
 6. Vérifier que votre code est nettoyé et bien indenté [X]
 
 ## Bonus
-1. Demander une confirmation en JavaScript pour la suppression
-2. Vérifier les données utilisateur au moment du `add` ou de l’`update` (exemple : ne pas enregistrer de prosuit sans nom)
+1. Demander une confirmation en JavaScript pour la suppression [X]
+2. Vérifier les données utilisateur au moment du `add` ou de l’`update` (exemple : ne pas enregistrer de prosuit sans nom) []
 
 ## Super Bonus
 1. Se protéger contre la faille CSRF

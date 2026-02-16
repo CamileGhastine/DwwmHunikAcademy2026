@@ -16,6 +16,11 @@ if (!empty($_POST)) {
     // Si le formulaire est soumis, récupérer la saisie de l'utilisateur
     $name = $_POST['item'];
 
+    if (empty($name) || strlen($name) > 50) {
+        header('Location: update.php?id=' . $id);
+        exit;
+    }
+
     // updater la saisie dans la BDD
     $pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
     $sql = "UPDATE product SET name=:name WHERE id=:id";
