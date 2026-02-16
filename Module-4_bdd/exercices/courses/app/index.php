@@ -20,7 +20,7 @@ $products = $request->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <h1>Liste de courses :</h1>
-    <form action="???" method="post">
+    <form action="src/add.php" method="post">
         <label for="product">Produit : </label>
         <input type="text" name="item">
         <input type="submit" value="Ajouter">

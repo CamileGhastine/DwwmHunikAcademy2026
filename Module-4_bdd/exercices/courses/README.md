@@ -1,7 +1,7 @@
 # Liste de courses
 
 ## À faire
-1. Implémenter la page `index.php`
+1. Implémenter la page `index.php` [x]
 2. Implémenter la page `add.php`
 3. Implémenter la page `delete.php`
 4. Implémenter la page `update.php`
