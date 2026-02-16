@@ -10,10 +10,11 @@
 
 ## Bonus
 1. Demander une confirmation en JavaScript pour la suppression [X]
-2. Vérifier les données utilisateur au moment du `add` ou de l’`update` (exemple : ne pas enregistrer de prosuit sans nom) []
+2. Vérifier les données utilisateur au moment du `add` ou de l’`update` (exemple : ne pas enregistrer de prosuit sans nom) [X]
 
 ## Super Bonus
-1. Se protéger contre la faille CSRF
-2. Faire un HTML/CSS agréable à l’œil
+1. Se protéger contre la faille CSRF []
+    Icvi il n'y a pas de connexion donc le CSRF n'est pas utile, mais on va le faire pour l'entrainement
+2. Faire un HTML/CSS agréable à l’œil [pas fait]
 
 ⚠️ Le projet doit être poussé sur Github pour pouvoir être évalué.

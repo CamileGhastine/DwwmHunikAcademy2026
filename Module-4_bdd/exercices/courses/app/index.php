@@ -1,4 +1,7 @@
 <?php
+session_start();
+$tokenCsrf = bin2hex(random_bytes(32));
+$_SESSION['token_csrf'] = $tokenCsrf;
 // Créer l'objet $pdo en récupérant les infos de connexion à la BDD dans le docker_compose
 $pdo = new PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
 
@@ -29,7 +32,7 @@ $products = $request->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($products as $product) { ?>
         <li>
             <?php echo htmlspecialchars($product['name']) ?>
-            <a href="src/delete.php?id=<?php echo $product['id'] ?>" onclick="return deleteConfirmation()">❌</a>      
+            <a href="src/delete.php?id=<?php echo $product['id'] ?>&token_csrf=<?php echo $tokenCsrf ?>" onclick="return deleteConfirmation()">❌</a>      
             <a href="src/update.php?id=<?php echo $product['id'] ?>">✏️</a>
         </li>
         <?php } ?>
