@@ -44,23 +44,7 @@ if (!empty($_POST)) {
     header('Location: /index.php');
     exit;
 }
-?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier</title>
-</head>
-<body>
-    <h1>Modifier le produit</h1>
-    <form action="update.php?id=<?php echo $id ?>" method="post">            <!-- Il faut ici renseigner dynamiquement id -->
-        <label for="product">Produit : </label>
-        <input type="text" name="item" value="<?php echo htmlspecialchars($product['name']) ?>">
-        <input type="hidden" name="token_csrf" value="<?php echo $tokenCsrfSession ?>">
-        <input type="submit" value="Modifier">
-    </form>
-    <a href="../index.php">Retour à l'accueil</a>
-</body>
-</html>
+require('view/update.phtml');
+
+
