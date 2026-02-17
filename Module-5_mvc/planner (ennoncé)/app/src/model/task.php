@@ -13,7 +13,7 @@ function getOneById($id)
 }
 
 // Change le status (fait/à faire) de la tâche selon son id
-function changeStatus($id)
+function updateStatus($id)
 {
 
 }
