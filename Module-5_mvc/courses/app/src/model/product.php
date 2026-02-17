@@ -15,23 +15,52 @@ function getProducts()
 // Ajoute un produit
 function add($name)
 {
-    // coder ici
+    $pdo = new \PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "INSERT INTO product(name) VALUES (:name)";
+    $request = $pdo->prepare($sql);
+    $request->execute(['name' => $name]);
 }
 
 // Supprimme un produit
 function delete($id)
 {
-    // coder ici
+    $pdo = new \PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "DELETE FROM product WHERE id=:id";
+    $request = $pdo->prepare($sql);
+    $request->execute(['id' => $id]);
 }
 
 // Récupère un produit 
 function getProduct($id) 
 {
-    // coder ici
+    $pdo = new \PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "SELECT * FROM product WHERE id=:id";
+    $request = $pdo->prepare($sql);
+    $request->execute(['id' => $id]);
+    $product = $request->fetch(\PDO::FETCH_ASSOC);
+
+    return $product;
 }
 
 // Update un produit
 function update ($id, $name)
 {
-    // coder ici
+    $pdo = new \PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "UPDATE product SET name=:name WHERE id=:id";
+    $request = $pdo->prepare($sql);
+    $request->execute([
+        'id' => $id,
+        'name' => $name
+    ]);
+}
+
+function getProductsQty()
+{
+    $pdo = new \PDO('mysql:dbname=courses;host=mysql', 'user', 'pwd');
+    $sql = "SELECT count(*) FROM product";
+    $request = $pdo->prepare($sql);
+    $request->execute();
+    $qty = $request->fetchcolumn();
+
+    return $qty;
 }

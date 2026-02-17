@@ -1,14 +1,24 @@
 <?php
-// Token csrf
 session_start();
-if(!isset($_SESSION['token_csrf'])) {
-    $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
+
+// Annalyse la route route demandée
+if(isset($_GET['route'])) {
+    $route = $_GET['route'];
+} else {
+    $route = 'index';
 }
-$tokenCsrf = $_SESSION['token_csrf'];
 
-// Récupérer dans la BDD tous les produits. Vérifier avec un var_dump($products)
-require('src/model/product.php');
-$products = getProducts();
+// on appelle la bonne fonction suivant la route demandée
+require_once('src/controller/productController.php');
 
-// Afficher tous les produits dans le HTML ci-dessous avec un foreach
-require('src/view/index.phtml');
+if ($route === 'index') {
+    index();
+} elseif ($route === 'add') {
+    addProduct();
+} elseif ($route === 'delete') {
+    deleteProduct();
+} elseif ($route === 'update') {
+    updateProduct();
+} else {
+    echo 'Erreur 404 : page non trouvée!<br><a href="../index.php">Retour à l\'accueil</a>';
+}
