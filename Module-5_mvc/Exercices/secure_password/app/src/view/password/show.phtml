@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+</head>
+<body>
+    <?php if (isset($_SESSION['name'])) { ?>
+        <p><a href="?route=deconnection">Deconnexion</a></p>
+    <?php } else { ?>
+        <p><a href="?route=register">Enregistrement</a> / <a href="?route=connection">Connexion</a></p>
+    <?php } ?>
+
+    <h1><?= htmlspecialchars($password['title']) ?></h1>
+    <p>Votre mot de passe est : <strong><?= htmlspecialchars($password['secret']) ?></strong></p>
+
+    <p><a href="index.php">Retour à l'accueil</a></p>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+</head>
+<body>
+    <?php if (isset($_SESSION['name'])) { ?>
+        <p><a href="?route=deconnection">Deconnexion</a></p>
+    <?php } else { ?>
+        <p><a href="?route=register">Enregistrement</a> / <a href="?route=connection">Connexion</a></p>
+    <?php } ?>
+
+    <h1>Tous mes mots de passe</h1>
+    <p>➕​</p>
+
+    <ul>
+        <?php foreach ($passwords as $password) { ?>
+        <li><a href="?route=show&id=<?php echo $password['id'] ?>"><?php echo htmlspecialchars($password['title']) ?></a></li>
+        <?php } ?>
+    </ul>
+</body>
+</html>
