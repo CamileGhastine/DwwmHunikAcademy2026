@@ -9,6 +9,7 @@
     <h1><?php echo $task['title'] ?></h1>
     <p><?php echo $task['description'] ?></p>
     <p>A faire avant le : <?php echo $date ?></p>
+    <p><a href="?route=delete&id=<?php echo $task['id'] ?>">❌</a></p>
     <a href="?route=index">Retour à l'accueil</a>
 </body>
 </html>

@@ -16,9 +16,11 @@ function getAll()
 function getOneById($id)
 {
     $pdo = new \PDO('mysql:dbname=planner;host=mysql', 'user', 'pwd');
-    $sql = "SELECT * FROM tasks WHERE id=$id";
+    $sql = "SELECT * FROM tasks WHERE id=:id";
     $request = $pdo->prepare($sql);
-    $request->execute();
+    $request->execute([
+        'id' => $id
+    ]);
     $task = $request->fetch(\PDO::FETCH_ASSOC);
 
     return $task;
@@ -33,5 +35,15 @@ function updateStatus($id, $isDone)
     $request->execute([
         'id' => $id,
         'isDone' => $isDone
+    ]);
+}
+
+function deleteTask($id)
+{
+    $pdo = new \PDO('mysql:dbname=planner;host=mysql', 'user', 'pwd');
+    $sql = "DELETE FROM tasks WHERE id=:id";
+    $request = $pdo->prepare($sql);
+    $request->execute([
+        'id' => $id
     ]);
 }

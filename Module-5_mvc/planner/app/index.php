@@ -14,6 +14,8 @@ if ($route === 'index') {
     changeStatus();
 } elseif ($route === 'show') {
     show();
-} else {
+} elseif ($route === 'delete') {
+    delete();
+}else {
     echo 'Erreur 404 : page demandée inconnue !';
 }

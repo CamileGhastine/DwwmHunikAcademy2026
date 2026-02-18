@@ -41,3 +41,15 @@ function show()
     require('src/view/show.phtml');
 }
 
+// Supprimmer une tâche
+function delete()
+{
+    $id = $_GET['id'];
+
+    // Appeler le modèle
+    require('src/model/task.php');
+    deleteTask($id);
+
+    header('Location: index.php');
+    exit;   
+}
