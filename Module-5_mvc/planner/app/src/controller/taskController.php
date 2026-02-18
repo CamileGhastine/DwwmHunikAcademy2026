@@ -30,5 +30,14 @@ function changeStatus()
 //Affiche une seule tâche
 function show()
 {
+    $id = $_GET['id'];
 
+    require('src/model/task.php');
+    $task = getOneById($id);
+
+    $date = new DateTime($task['deadline']);
+    $date = $date->format('d/m/Y');
+
+    require('src/view/show.phtml');
 }
+

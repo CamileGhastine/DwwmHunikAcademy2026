@@ -17,7 +17,8 @@
         ?>
         <li>
             <a href="?route=change&id=<?php echo $task['id'] ?>&is_done=<?php echo $task['is_done'] ?>"><?php echo $status ?></a> 
-            <?php echo htmlspecialchars($task['title']) ?> - <?php echo $date ?>
+            <?php echo htmlspecialchars($task['title']) ?> - <?php echo $date ?> - 
+            <a href="?route=show&id=<?php echo $task['id'] ?>">voir le détail</a>
         </li>
         <?php } ?>
     </ul>

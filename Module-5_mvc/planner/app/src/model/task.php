@@ -13,9 +13,15 @@ function getAll()
 }
 
 // Récupère la tache selon son id
-function getOneById()
+function getOneById($id)
 {
+    $pdo = new \PDO('mysql:dbname=planner;host=mysql', 'user', 'pwd');
+    $sql = "SELECT * FROM tasks WHERE id=$id";
+    $request = $pdo->prepare($sql);
+    $request->execute();
+    $task = $request->fetch(\PDO::FETCH_ASSOC);
 
+    return $task;
 }
 
 // Change le status (fait/à faire) de la tâche selon son id
