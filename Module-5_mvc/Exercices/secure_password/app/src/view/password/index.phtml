@@ -6,19 +6,24 @@
     <title>Accueil</title>
 </head>
 <body>
-    <?php if (isset($_SESSION['name'])) { ?>
+    <?php if (isset($_SESSION['user'])) { ?>
+
         <p><a href="?route=deconnection">Deconnexion</a></p>
+
+        <h1>Tous mes mots de passe</h1>
+        <p><a href="?route=add">➕</a>​</p>
+
+        <ul>
+            <?php foreach ($passwords as $password) { ?>
+            <li><a href="?route=show&id=<?php echo $password['id'] ?>"><?php echo htmlspecialchars($password['title']) ?></a></li>
+            <?php } ?>
+        </ul>
+
     <?php } else { ?>
+
         <p><a href="?route=register">Enregistrement</a> / <a href="?route=connection">Connexion</a></p>
+        <p>Merci de vous connecter pour voir vos mots de passe.</p>
     <?php } ?>
 
-    <h1>Tous mes mots de passe</h1>
-    <p>➕​</p>
-
-    <ul>
-        <?php foreach ($passwords as $password) { ?>
-        <li><a href="?route=show&id=<?php echo $password['id'] ?>"><?php echo htmlspecialchars($password['title']) ?></a></li>
-        <?php } ?>
-    </ul>
 </body>
 </html>

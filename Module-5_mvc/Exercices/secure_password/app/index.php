@@ -13,6 +13,9 @@ if ($route === 'index') {
 } elseif ($route === 'show') {
     require_once('src/controller/passwordController.php');
     show();
+} elseif ($route === 'add') {
+    require_once('src/controller/passwordController.php');
+    add();
 } elseif($route === 'register') {
     require_once('src/controller/securityController.php');
     register();

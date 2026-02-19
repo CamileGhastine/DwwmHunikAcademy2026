@@ -6,7 +6,7 @@
     <title>Accueil</title>
 </head>
 <body>
-    <?php if (isset($_SESSION['name'])) { ?>
+    <?php if (isset($_SESSION['user'])) { ?>
         <p><a href="?route=deconnection">Deconnexion</a></p>
     <?php } else { ?>
         <p><a href="?route=register">Enregistrement</a> / <a href="?route=connection">Connexion</a></p>

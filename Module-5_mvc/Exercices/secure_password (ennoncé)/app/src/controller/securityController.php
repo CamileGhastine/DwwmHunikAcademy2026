@@ -20,7 +20,7 @@ function connection()
         // si les mot de passe concordent [fonnction php password_verify($pwdSaisi, $pwdFromBdd)]
         if ($user && password_verify($password, $user['password'])) {
             // on enregistre en session $_SESSION['name'] = $name
-            $_SESSION['name'] = $name;
+            $_SESSION['user'] = $user;
             header('Location: index.php');
             exit;
         } else {
