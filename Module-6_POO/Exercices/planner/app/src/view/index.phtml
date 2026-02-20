@@ -9,16 +9,11 @@
     <h1>Mes tâches</h1>
   
     <ul>
-        <?php foreach($tasks as $task) { 
-        $date = new Datetime($task['deadline']); 
-        $date = $date->format('d/m/Y');
-
-        $status = $task['is_done'] ? '☑' : '☐';
-        ?>
+        <?php foreach($tasks as $task) { ?>
         <li>
-            <a href="?route=change&id=<?php echo $task['id'] ?>&is_done=<?php echo $task['is_done'] ?>"><?php echo $status ?></a> 
-            <?php echo htmlspecialchars($task['title']) ?> - <?php echo $date ?> - 
-            <a href="?route=show&id=<?php echo $task['id'] ?>">voir le détail</a>
+            <a href="?route=change&id=<?php echo $task->getId() ?>&is_done=<?php echo $task->getIs_done() ?>"><?php echo $task->getIconStatus() ?></a> 
+            <?php echo htmlspecialchars($task->getTitle()) ?> - <?php echo $task->getFormatedDeadline() ?> - 
+            <a href="?route=show&id=<?php echo $task->getId() ?>">voir le détail</a>
         </li>
         <?php } ?>
     </ul>

@@ -6,16 +6,17 @@ if(isset($_GET['route'])) {
     $route ='index';
 }
 
-require('src/controller/taskController.php');
+require('src/controller/TaskController.php');
+$taskController = new TaskController;
 
 if ($route === 'index') {
-    index();
+    $taskController->index();
 } elseif ($route === 'change') {
-    changeStatus();
+    $taskController->changeStatus();
 } elseif ($route === 'show') {
-    show();
+    $taskController->show();
 } elseif ($route === 'delete') {
-    delete();
+    $taskController->delete();
 }else {
     echo 'Erreur 404 : page demandée inconnue !';
 }

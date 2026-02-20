@@ -6,10 +6,11 @@
     <title>Détail de la tâche</title>
 </head>
 <body>
-    <h1><?php echo $task['title'] ?></h1>
-    <p><?php echo $task['description'] ?></p>
-    <p>A faire avant le : <?php echo $date ?></p>
-    <p><a href="?route=delete&id=<?php echo $task['id'] ?>">❌</a></p>
+    <h1><?php echo $task->getTitle() ?></h1>
+    <p><?php echo $task->getDescription() ?></p>
+    <p>A faire avant le : <?php echo $task->getFormatedDeadline() ?></p>
+    <p>Il vous reste <?php echo $task->getIntervalBeforeDeadline() ?> jours avant la date limite.</p>
+    <p><a href="?route=delete&id=<?php echo $task->getId() ?>">❌</a></p>
     <a href="?route=index">Retour à l'accueil</a>
 </body>
 </html>
