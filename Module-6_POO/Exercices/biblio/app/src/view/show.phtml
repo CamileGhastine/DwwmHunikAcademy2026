@@ -1,1 +1,15 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+</head>
+<body>
+    <h1><?= htmlspecialchars($book->getTitle()) ?></h1>
+    <p>Auteur : <?= htmlspecialchars($book->getAuthor()) ?></p>
+    <p>Description : <br> <?= htmlspecialchars($book->getDescription()) ?></p>
+
+</body>
+</html>
