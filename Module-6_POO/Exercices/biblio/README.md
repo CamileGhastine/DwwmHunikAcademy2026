@@ -11,7 +11,7 @@ avec la méthode index()
     b. On appele la methode findAll de cet objet
     c. On créer le BookRepository et sa méthode findAll
     d. On code la méthode findall qui récupère tous les livres
-6) On appelle la vue index.phtml qui affiche tous les livres.
+6) On appelle la vue index.phtml qui affiche tous les titres des livres.
 
 
 ## Objectif
