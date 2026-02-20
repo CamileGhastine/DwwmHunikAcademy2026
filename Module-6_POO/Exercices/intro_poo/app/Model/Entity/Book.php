@@ -7,11 +7,11 @@
 //Définir la classe Book ici
 class Book
 {
-    private $title;
-    private $author;
-    private $genre;
-    private $description;
-    private $dateInstanciation;
+    protected $title;
+    protected $author;
+    protected $genre;
+    protected $description;
+    protected $dateInstanciation;
 
     public function __construct()
     {

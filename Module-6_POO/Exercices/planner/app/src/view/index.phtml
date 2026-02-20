@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plannifcateur de tâche</title>
+</head>
+<body>
+    <h1>Mes tâches</h1>
+  
+    <ul>
+        <?php foreach($tasks as $task) { 
+        $date = new Datetime($task['deadline']); 
+        $date = $date->format('d/m/Y');
+
+        $status = $task['is_done'] ? '☑' : '☐';
+        ?>
+        <li>
+            <a href="?route=change&id=<?php echo $task['id'] ?>&is_done=<?php echo $task['is_done'] ?>"><?php echo $status ?></a> 
+            <?php echo htmlspecialchars($task['title']) ?> - <?php echo $date ?> - 
+            <a href="?route=show&id=<?php echo $task['id'] ?>">voir le détail</a>
+        </li>
+        <?php } ?>
+    </ul>
+</body>
+</html>

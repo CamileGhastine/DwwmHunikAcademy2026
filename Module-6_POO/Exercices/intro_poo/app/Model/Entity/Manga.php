@@ -8,7 +8,7 @@
 class Manga extends Book
 {
     private $illustrator;
-
+    
     /**
      * Get the value of illustrator
      */ 
