@@ -1,0 +1,14 @@
+{
+    "name": "biblio/app",
+    "autoload": {
+        "psr-4": {
+            "Biblio\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Camile"
+        }
+    ],
+    "require": {}
+}

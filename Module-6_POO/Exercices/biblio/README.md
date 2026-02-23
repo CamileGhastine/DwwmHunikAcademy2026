@@ -14,6 +14,7 @@ avec la méthode index() [X]
 6) On appelle la vue index.phtml qui affiche tous les titres des livres.[X]
 7) Créer une fonction de rechecrhe qui affiche tous les auteurs. []
 8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livres de cet auteur.
+9) Quand on clique sur un livre on a la possibilité de noté le nom de son emprunteur et l'id du livre emprunté. la date de retour est calculé automatique à J+7. Le tout est enregistré dans la table borrow.
 
 ## Objectif
 

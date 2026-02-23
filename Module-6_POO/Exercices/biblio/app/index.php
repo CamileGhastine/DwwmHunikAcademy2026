@@ -1,6 +1,8 @@
 <?php
 
-require_once('src/controller/BookController.php');
+use Biblio\App\Controller\BookController;
+
+require 'vendor/autoload.php';
 
 if(isset($_GET['route'])) {
     $route = $_GET['route'];
@@ -14,8 +16,10 @@ if ($route === 'index') {
     $bookController->index();
 } elseif ($route === 'show') {
     $bookController->show();
-} elseif($route='search') {
+} elseif($route === 'search') {
     $bookController->search();
-}else {
+} elseif ($route === 'borrow') {
+    $bookController->borrow();
+} else {
     echo 'Erreur 404 : page demandée inconnue !';
 }

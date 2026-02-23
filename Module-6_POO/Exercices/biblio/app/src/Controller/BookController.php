@@ -1,6 +1,8 @@
 <?php
 
-require_once('src/Repository/BookRepository.php');
+namespace Biblio\App\Controller;
+
+use Biblio\App\Repository\BookRepository;
 
 class BookController
 {
@@ -35,5 +37,13 @@ class BookController
 
             require('src/view/author/index.phtml');
         }
+    }
+
+    public function borrow()
+    {
+        // Récupérer les infos du formulaire : $id_book, $user
+        // Calculer la date_return à J+7
+        // Enregsitrer les infos (id_book, user, date_return) en BDD (grace au BorrowRepository)
+        // Rédirger vers l'accueil
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Biblio\App\Entity;
+
 class Book
 {
     private $id;

@@ -1,7 +1,9 @@
 <?php
 
-require_once('src/Entity/Book.php');
-require('src/Repository/Repository.php');
+namespace Biblio\App\Repository;
+
+use Biblio\App\Entity\Book;
+use PDO;
 
 class BookRepository extends Repository
 {
@@ -11,7 +13,7 @@ class BookRepository extends Repository
         $sql = "SELECT * FROM book " . $where;
         $request = $this->pdo->prepare($sql);
         $request->execute();
-        $books = $request->fetchAll(\PDO::FETCH_CLASS, 'Book');
+        $books = $request->fetchAll(PDO::FETCH_CLASS, Book::class);
 
         return $books;
     }
@@ -21,7 +23,7 @@ class BookRepository extends Repository
         $sql = "SELECT * FROM book WHERE id=:id";
         $request = $this->pdo->prepare($sql);
         $request->execute(['id' => $id]);
-        $request->setFetchMode(\PDO::FETCH_CLASS, 'Book');
+        $request->setFetchMode(PDO::FETCH_CLASS, Book::class);
         $book = $request->fetch();
 
         return $book;
@@ -33,6 +35,6 @@ class BookRepository extends Repository
         $request = $this->pdo->prepare($sql);
         $request->execute(['search' => "%$search%"]);
 
-        return $request->fetchAll(PDO::FETCH_CLASS, 'Book');
+        return $request->fetchAll(PDO::FETCH_CLASS, '\Biblio\App\Entity\Book');
     }
 }

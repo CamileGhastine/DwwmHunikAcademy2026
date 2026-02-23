@@ -10,6 +10,11 @@
     <h1><?= htmlspecialchars($book->getTitle()) ?></h1>
     <p>Auteur : <?= htmlspecialchars($book->getAuthor()) ?></p>
     <p>Description : <br> <?= htmlspecialchars($book->getDescription()) ?></p>
+    <form action="?route=borrow" method="post">
+        <input type="hidden" name="id_book" value="<?= $book->getId() ?>">
+        <label for="user">Nom de l'emprunteur</label>
+        <input type="text" name="user"> <input type="submit" value="Emprunter">
+    </form>
     <p><a href="index.php">Retour à l'accueil</a></p>
 
 </body>
