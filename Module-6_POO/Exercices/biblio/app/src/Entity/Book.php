@@ -7,8 +7,6 @@ class Book
     private $author;
     private $description;
 
-    
-
     /**
      * Get the value of id
      */ 

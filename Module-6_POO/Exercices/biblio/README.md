@@ -13,7 +13,7 @@ avec la méthode index() [X]
     d. On code la méthode findall qui récupère tous les livres [X]
 6) On appelle la vue index.phtml qui affiche tous les titres des livres.[X]
 7) Créer une fonction de rechecrhe qui affiche tous les auteurs. []
-8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livre de cet auteur.
+8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livres de cet auteur.
 
 ## Objectif
 

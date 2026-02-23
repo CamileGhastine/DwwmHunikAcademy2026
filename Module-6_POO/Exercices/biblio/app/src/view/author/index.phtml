@@ -7,15 +7,16 @@
 </head>
 <body>
     <h1>Liste des livres</h1>
-    <form action="?route=search">
+    <form action="?route=search" method="post">
         <input type="text" name="author" placeholder="Chercher un auteur">
         <input type="submit" value="🔎">
     </form>
     <ul>
         <?php foreach ($books as $book) {?>
-        <li><?= htmlspecialchars($book->getTitle()) ?> <a href="?route=show&id=<?php echo $book->getId() ?>">📋</a></li>
+        <li><?= htmlspecialchars($book->getauthor()) ?> <a href="?route=index&author=<?php echo $book->getAuthor() ?>">📋</a></li>
         <?php } ?>
     </ul>
+    <p><a href="index.php">Retour à l'accueil</a></p>
     
 </body>
 </html>

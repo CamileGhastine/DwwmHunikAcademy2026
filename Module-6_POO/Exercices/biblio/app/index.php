@@ -1,12 +1,13 @@
 <?php
 
+require_once('src/controller/BookController.php');
+
 if(isset($_GET['route'])) {
     $route = $_GET['route'];
 } else {
     $route ='index';
 }
 
-require_once('src/controller/BookController.php');
 $bookController = new BookController;
 
 if ($route === 'index') {

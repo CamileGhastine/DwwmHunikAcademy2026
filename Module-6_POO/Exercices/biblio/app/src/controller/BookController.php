@@ -1,30 +1,39 @@
 <?php
 
+require_once('src/Repository/BookRepository.php');
+
 class BookController
 {
     public function index()
     {
-        require_once('src/Repository/BookRepository.php');
+        $author = isset($_GET['author']) ? $_GET['author'] : NULL;
+        // Même chose que $author = $_GET['author'] ?: NULL;
+    
         $bookRepo = new BookRepository;
-        $books = $bookRepo->findAll();  
+        $books = $bookRepo->findAll($author);  
 
-        require('src/view/index.phtml');
+        require('src/view/book/index.phtml');
     }
 
     public function show()
     {
         $id = $_GET['id'];
-        require_once('src/Repository/BookRepository.php');
+
         $bookRepo = new BookRepository;
         $book = $bookRepo->find($id);
 
-        require('src/view/show.phtml');   
+        require('src/view/book/show.phtml');   
     }
 
     public function search()
     {
-        // Récupérer les infos du formulaire
-        // COntacter le repository pour récupérer les auteur
-        // Afficher la liste des auteur dans une Vue search.phtml
+        if (!empty($_POST)) {
+            $search = $_POST['author'];
+            
+            $bookRepo = new BookRepository;
+            $books = $bookRepo->search($search);
+
+            require('src/view/author/index.phtml');
+        }
     }
 }
