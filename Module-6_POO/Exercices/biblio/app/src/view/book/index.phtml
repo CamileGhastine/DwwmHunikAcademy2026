@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-</head>
-<body>
-    <h1>Liste des livres</h1>
-    <form action="?route=search" method="post">
-        <input type="text" name="author" placeholder="Chercher un auteur">
-        <input type="submit" value="🔎">
-    </form>
-    <ul>
-        <?php foreach ($books as $book) {?>
-        <li><?= htmlspecialchars($book->getTitle()) ?> <a href="?route=show&id=<?php echo $book->getId() ?>">📋</a></li>
-        <?php } ?>
-    </ul>
-    
-</body>
-</html>
+<?php $tilte = 'Accueil'; ?>
+
+<?php ob_start() ?>
+<h1>Liste des livres</h1>
+<form action="?route=search" method="post">
+    <input type="text" name="author" placeholder="Chercher un auteur">
+    <input type="submit" value="🔎">
+</form>
+<ul>
+    <?php foreach ($books as $book) {?>
+    <li><?= htmlspecialchars($book->getTitle()) ?> <a href="?route=show&id=<?php echo $book->getId() ?>">📋</a></li>
+    <?php } ?>
+</ul>
+<?php $content = ob_get_clean() ?>
+
+<?php require 'src/view/base.phtml';
