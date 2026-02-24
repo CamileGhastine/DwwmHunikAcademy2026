@@ -1,0 +1,20 @@
+<?php $title = 'Liste des emprunts'; ?>
+
+<?php ob_start() ?>
+
+<h1>Liste des emprunts</h1>
+<ul>
+    <?php foreach ($borrows as $borrow) { ?>
+    <li>
+        <?= htmlspecialchars($borrow->getUser()) ?> : 
+        <?= htmlspecialchars($borrow->getTitle()) ?> 
+        (A rendre avant le : <?= $borrow->getDateFormated() ?> )
+        <a href="?route=return">Retour Du livre</a>
+    </li>
+    <?php } ?>
+</ul>
+
+<?php  $content = ob_get_clean() ?>
+
+
+<?php require 'src/view/base.phtml';

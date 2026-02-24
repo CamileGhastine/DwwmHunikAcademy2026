@@ -3,6 +3,7 @@
 namespace Biblio\App\Repository;
 
 use Biblio\App\Entity\Borrow;
+use PDO;
 
 class BorrowRepository extends Repository
 {
@@ -15,5 +16,15 @@ class BorrowRepository extends Repository
             'id_book' => $borrow->getId_book(),
             'date_return' => $borrow->getDate_return()
         ]);
+    }
+
+    public function findAllWithBooks()
+    {
+        $sql = "SELECT Bw.*, Bk.title FROM borrow Bw INNER JOIN book Bk ON Bw.id_book=Bk.id";
+        $request = $this->pdo->prepare($sql);
+        $request->execute();
+        $borrows = $request->fetchAll(PDO::FETCH_CLASS, Borrow::class);
+
+        return $borrows;
     }
 }

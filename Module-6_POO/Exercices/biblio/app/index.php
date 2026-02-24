@@ -1,6 +1,7 @@
 <?php
 
 use Biblio\App\Controller\BookController;
+use Biblio\App\Controller\BorrowController;
 
 require 'vendor/autoload.php';
 
@@ -20,6 +21,9 @@ if ($route === 'index') {
     $bookController->search();
 } elseif ($route === 'borrow') {
     $bookController->borrow();
+} elseif ($route === 'listBorrow') {
+    $borrowController = new BorrowController;
+    $borrowController->index();
 } else {
     echo 'Erreur 404 : page demandée inconnue !';
 }

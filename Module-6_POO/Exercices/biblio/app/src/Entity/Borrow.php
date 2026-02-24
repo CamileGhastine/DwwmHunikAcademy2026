@@ -10,6 +10,7 @@ class Borrow
     private $user;
     private $date_return;
     private $id_book;
+    private $title;
 
     /**
      * Get the value of id
@@ -79,6 +80,33 @@ class Borrow
     public function setId_book($id_book)
     {
         $this->id_book = $id_book;
+
+        return $this;
+    }
+
+    public function getDateFormated()
+    {
+        $date = new DateTime($this->getDate_return());
+        
+        return $date->format('d/m/Y');
+    }
+
+    /**
+     * Get the value of title
+     */ 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
+     *
+     * @return  self
+     */ 
+    public function setTitle($title)
+    {
+        $this->title = $title;
 
         return $this;
     }

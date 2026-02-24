@@ -16,8 +16,9 @@ avec la méthode index() [X]
 8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livres de cet auteur.
 9) Quand on clique sur un livre on a la possibilité de noté le nom de son emprunteur et l'id du livre emprunté. la date de retour est calculé automatique à J+7. Le tout est enregistré dans la table borrow.
 10) Quand on clique sur Emrpunt dans le menu, on arrive sur une page qui affiche tous les livres emprunté avec la date de retour et un bouton "retour du livre" sur chaque ligne.
-11) Dans show, le fomrulaire est remplacé par un bouton "retour du livre". Lorsqu'on clique sur le  bouton "retour du livre" la ligne correspondante dans borrow est supprimmée.
-12) lorsqu'un livre est emprunté ce signe 🚫 doit apparaitre en face du livre dans index.phtml 
+11) Lorsqu'on clique sur le  bouton "retour du livre" de la question 10 la ligne correspondante dans borrow est supprimmée.
+12) Dans show d'un livre emprunté, le fomrulaire est remplacé par un bouton "retour du livre" qui a les mêms conséquences que 11. 
+13) lorsqu'un livre est emprunté ce signe 🚫 doit apparaitre en face du livre dans index.phtml 
 
 
 ## Objectif
