@@ -2,7 +2,9 @@
 
 namespace Biblio\App\Controller;
 
+use Biblio\App\Entity\Borrow;
 use Biblio\App\Repository\BookRepository;
+use Biblio\App\Repository\BorrowRepository;
 
 class BookController
 {
@@ -41,9 +43,22 @@ class BookController
 
     public function borrow()
     {
-        // Récupérer les infos du formulaire : $id_book, $user
-        // Calculer la date_return à J+7
-        // Enregsitrer les infos (id_book, user, date_return) en BDD (grace au BorrowRepository)
-        // Rédirger vers l'accueil
+        if(!empty($_POST)) {
+            if(empty($user) || strlen($user) > 50) {
+                header('Location: index.php?route=show&id=' . $_POST['id_book']);
+                exit;  
+            }
+            
+            $borrow = new Borrow;
+            $borrow->setUser($_POST['user'])
+            ->setId_book((int)$_POST['id_book'])
+            ->setDate_return();
+
+            $bookRepo = new BorrowRepository;
+            $bookRepo->add($borrow);
+
+            header('Location: index.php');
+            exit;         
+        }
     }
 }
