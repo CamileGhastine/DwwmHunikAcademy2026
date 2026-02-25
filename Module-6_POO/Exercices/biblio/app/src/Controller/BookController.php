@@ -2,19 +2,22 @@
 
 namespace Biblio\App\Controller;
 
-use Biblio\App\Entity\Borrow;
 use Biblio\App\Repository\BookRepository;
-use Biblio\App\Repository\BorrowRepository;
 
 class BookController
 {
+    private $bookRepo;
+
+    public function __construct()
+    {
+        $this->bookRepo = new BookRepository;
+    }
     public function index()
     {
         $author = isset($_GET['author']) ? $_GET['author'] : NULL;
         // Même chose que $author = $_GET['author'] ?: NULL;
     
-        $bookRepo = new BookRepository;
-        $books = $bookRepo->findAll($author);  
+        $books = $this->bookRepo->findAll($author);  
 
         require('src/view/book/index.phtml');
     }
@@ -23,8 +26,7 @@ class BookController
     {
         $id = $_GET['id'];
 
-        $bookRepo = new BookRepository;
-        $book = $bookRepo->find($id);
+        $book = $this->bookRepo->find($id);
 
         require('src/view/book/show.phtml');   
     }
@@ -33,32 +35,15 @@ class BookController
     {
         if (!empty($_POST)) {
             $search = $_POST['author'];
-            
-            $bookRepo = new BookRepository;
-            $books = $bookRepo->search($search);
 
-            require('src/view/author/index.phtml');
-        }
-    }
-
-    public function borrow()
-    {
-        if(!empty($_POST)) {
-            if(empty($user) || strlen($user) > 50) {
-                header('Location: index.php?route=show&id=' . $_POST['id_book']);
-                exit;  
+            if (empty($search)) {
+                header('Location: index.php');
+                exit;
             }
             
-            $borrow = new Borrow;
-            $borrow->setUser($_POST['user'])
-            ->setId_book((int)$_POST['id_book'])
-            ->setDate_return();
+            $books = $this->bookRepo->search($search);
 
-            $bookRepo = new BorrowRepository;
-            $bookRepo->add($borrow);
-
-            header('Location: index.php');
-            exit;         
+            require('src/view/author/index.phtml');
         }
     }
 }

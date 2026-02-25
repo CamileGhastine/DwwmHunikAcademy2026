@@ -10,7 +10,7 @@ class BookRepository extends Repository
     public function findAll($author)
     {
         $where = $author ? "WHERE author='$author'" : NULL;
-        $sql = "SELECT * FROM book " . $where;
+        $sql = "SELECT Bk.*, Bw.id as id_borrow FROM book Bk LEFT JOIN borrow Bw ON Bk.id=Bw.id_book " . $where;
         $request = $this->pdo->prepare($sql);
         $request->execute();
         $books = $request->fetchAll(PDO::FETCH_CLASS, Book::class);
@@ -20,7 +20,7 @@ class BookRepository extends Repository
 
     public function find($id)
     {
-        $sql = "SELECT * FROM book WHERE id=:id";
+        $sql = "SELECT Bk.*, Bw.id as id_borrow FROM book Bk LEFT JOIN borrow Bw ON Bk.id=Bw.id_book WHERE Bk.id=:id";
         $request = $this->pdo->prepare($sql);
         $request->execute(['id' => $id]);
         $request->setFetchMode(PDO::FETCH_CLASS, Book::class);

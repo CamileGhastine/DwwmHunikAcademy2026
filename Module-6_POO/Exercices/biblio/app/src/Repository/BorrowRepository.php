@@ -27,4 +27,11 @@ class BorrowRepository extends Repository
 
         return $borrows;
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM borrow WHERE id=:id";
+        $request = $this->pdo->prepare($sql);
+        $request->execute(['id' => $id]);
+    }
 }

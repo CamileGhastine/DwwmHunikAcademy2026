@@ -9,7 +9,7 @@
         <?= htmlspecialchars($borrow->getUser()) ?> : 
         <?= htmlspecialchars($borrow->getTitle()) ?> 
         (A rendre avant le : <?= $borrow->getDateFormated() ?> )
-        <a href="?route=return">Retour Du livre</a>
+        <a href="?route=return&id=<?= $borrow->getId() ?>">Retour Du livre</a>
     </li>
     <?php } ?>
 </ul>

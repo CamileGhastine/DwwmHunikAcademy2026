@@ -3,12 +3,12 @@
 <?php ob_start() ?>
 <h1>Liste des livres</h1>
 <form action="?route=search" method="post">
-    <input type="text" name="author" placeholder="Chercher un auteur">
+    <input type="text" name="author" placeholder="Chercher un auteur" required>
     <input type="submit" value="🔎">
 </form>
 <ul>
     <?php foreach ($books as $book) {?>
-    <li><?= htmlspecialchars($book->getTitle()) ?> <a href="?route=show&id=<?php echo $book->getId() ?>">📋</a></li>
+    <li><?= $book->getId_borrow() ? '🚫' : '' ?> <?= htmlspecialchars($book->getTitle()) ?> <a href="?route=show&id=<?php echo $book->getId() ?>">📋</a></li>
     <?php } ?>
 </ul>
 <?php $content = ob_get_clean() ?>

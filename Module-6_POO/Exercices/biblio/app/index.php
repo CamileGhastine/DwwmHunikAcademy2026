@@ -12,6 +12,7 @@ if(isset($_GET['route'])) {
 }
 
 $bookController = new BookController;
+$borrowController = new BorrowController;
 
 if ($route === 'index') {
     $bookController->index();
@@ -20,10 +21,11 @@ if ($route === 'index') {
 } elseif($route === 'search') {
     $bookController->search();
 } elseif ($route === 'borrow') {
-    $bookController->borrow();
+    $borrowController->borrow();
 } elseif ($route === 'listBorrow') {
-    $borrowController = new BorrowController;
     $borrowController->index();
+} elseif ($route === 'return') {
+    $borrowController->delete();
 } else {
     echo 'Erreur 404 : page demandée inconnue !';
 }

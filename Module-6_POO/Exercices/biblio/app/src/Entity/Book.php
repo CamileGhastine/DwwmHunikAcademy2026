@@ -8,6 +8,7 @@ class Book
     private $title;
     private $author;
     private $description;
+    private $id_borrow;
 
     /**
      * Get the value of id
@@ -85,6 +86,26 @@ class Book
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_borrow
+     */ 
+    public function getId_borrow()
+    {
+        return $this->id_borrow;
+    }
+
+    /**
+     * Set the value of id_borrow
+     *
+     * @return  self
+     */ 
+    public function setId_borrow($id_borrow)
+    {
+        $this->id_borrow = $id_borrow;
 
         return $this;
     }

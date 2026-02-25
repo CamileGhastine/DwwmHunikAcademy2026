@@ -12,13 +12,13 @@ avec la méthode index() [X]
     c. On créer le BookRepository et sa méthode findAll [X]
     d. On code la méthode findall qui récupère tous les livres [X]
 6) On appelle la vue index.phtml qui affiche tous les titres des livres.[X]
-7) Créer une fonction de rechecrhe qui affiche tous les auteurs. []
-8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livres de cet auteur.
-9) Quand on clique sur un livre on a la possibilité de noté le nom de son emprunteur et l'id du livre emprunté. la date de retour est calculé automatique à J+7. Le tout est enregistré dans la table borrow.
-10) Quand on clique sur Emrpunt dans le menu, on arrive sur une page qui affiche tous les livres emprunté avec la date de retour et un bouton "retour du livre" sur chaque ligne.
-11) Lorsqu'on clique sur le  bouton "retour du livre" de la question 10 la ligne correspondante dans borrow est supprimmée.
-12) Dans show d'un livre emprunté, le fomrulaire est remplacé par un bouton "retour du livre" qui a les mêms conséquences que 11. 
-13) lorsqu'un livre est emprunté ce signe 🚫 doit apparaitre en face du livre dans index.phtml 
+7) Créer une fonction de rechecrhe qui affiche tous les auteurs. [X]
+8) Quand on clique sur un auteur, une nouvelle page s'ouvre qui affiche tous les livres de cet auteur. [X]
+9) Quand on clique sur un livre on a la possibilité de noté le nom de son emprunteur et l'id du livre emprunté. la date de retour est calculé automatique à J+7. Le tout est enregistré dans la table borrow. [X]
+10) Quand on clique sur Emrpunt dans le menu, on arrive sur une page qui affiche tous les livres emprunté avec la date de retour et un bouton "retour du livre" sur chaque ligne. [X]
+11) Lorsqu'on clique sur le  bouton "retour du livre" de la question 10 la ligne correspondante dans borrow est supprimmée. [X]
+12) Dans show d'un livre emprunté, le fomrulaire est remplacé par un bouton "retour du livre" qui a les mêms conséquences que 11. [X]
+13) lorsqu'un livre est emprunté ce signe 🚫 doit apparaitre en face du livre dans index.phtml [X]
 
 
 ## Objectif
