@@ -62,7 +62,7 @@
 ## 🗄️ Structure de la table MySQL
 
 ```sql
-CREATE TABLE contacts (
+CREATE TABLE contact (
     id        INT AUTO_INCREMENT PRIMARY KEY,
     nom       VARCHAR(100) NOT NULL,
     prenom    VARCHAR(100) NOT NULL,
