@@ -13,8 +13,10 @@
 |---|---------------|-------------|
 | 1 | **CREATE** | Ajouter un contact avec les champs : Nom, Prénom, Email, Téléphone, Adresse |
 | 2 | **READ** | Afficher la liste de tous les contacts (Nom et Prénom) sous forme de tableau |
-| 3 | **UPDATE** | Modifier un contact existant (pré-remplissage du formulaire au clic) |
-| 4 | **DELETE** | Supprimer un contact avec une confirmation via un formulaire POST |
+| 3 | **READ** | Afficher le déatils d'un contact |
+| 4 | **UPDATE** | Modifier un contact existant (pré-remplissage du formulaire au clic) |
+| 5 | **DELETE** | Supprimer un contact avec une confirmation via un formulaire POST |
+
 
 ---
 
@@ -23,7 +25,7 @@
 | # | Fonctionnalité | Description |
 |---|---------------|-------------|
 | 5 | Validation des champs obligatoires côté **front et back** | Nom et Prénom au minimum |
-| 6 | Validation du format Email côté **front et back** | Vérifier la structure avec `filter_var()` |
+| 6 | Validation du format Email côté **front et back** | Vérifierle fomat email|
 | 7 | Validation du format Téléphone côté **front et back** | Vérifier le format numérique |
 
 ---
