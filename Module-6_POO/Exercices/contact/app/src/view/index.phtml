@@ -1,7 +1,15 @@
 <?php $title = 'Ajout d\'un contacte'; ?>
 
 <?php ob_start() ?> 
-    <a href="?route=add">➕</a>
+
+<h1>Liste des contacts</h1>
+<a href="?route=add">➕</a>
+<?php foreach ($contacts as $contact) { ?>
+<ul>
+    <li><a href="?route=show&id=<?= $contact->getId() ?>"><?= ucfirst(htmlspecialchars($contact->getNom())) ?> <?= ucfirst(htmlspecialchars($contact->getPrenom())) ?></a></li>
+</ul>
+<?php } ?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require 'src/view/base.phtml' ?>

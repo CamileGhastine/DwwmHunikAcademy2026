@@ -7,9 +7,28 @@ use Contact\App\Repository\ContactRepository;
 
 class ContactController
 {
+    private $contactRepo;
+
+    public function __construct()
+    {
+        $this->contactRepo = new ContactRepository;
+    }
+
     public function index()
     {
+        $contacts = $this->contactRepo->findall();
+
         require ('src/view/index.phtml');
+    }
+
+    public function show()
+    {
+        $id = $_GET['id'];
+
+        $contact = $this->contactRepo->findById($id);
+
+        require 'src/view/show.phtml';
+
     }
 
     public function add()
@@ -23,8 +42,7 @@ class ContactController
             ->setAdresse($_POST['adresse'])
             ;
         
-            $contactRepo = new ContactRepository;
-            $contactRepo->add($contact);
+            $this->contactRepo->add($contact);
 
             header('Location: index.php');
             exit;

@@ -1,0 +1,11 @@
+<?php $title = 'Détail du contact' ?>
+
+<?php ob_start() ?>
+<h1><?= ucfirst(htmlspecialchars($contact->getNom())) ?> <?= ucfirst(htmlspecialchars($contact->getPrenom())) ?></h1>
+<p>@ <?= htmlspecialchars($contact->getEmail()) ?></p>
+<p>📞 <?= htmlspecialchars($contact->getTelephone()) ?></p>
+<p>✉️ <?= htmlspecialchars($contact->getAdresse()) ?></p>
+<p><a href="index.php">Retour à la liste</a></p>
+<?php $content = ob_get_clean() ?>
+
+<?php require 'src/view/base.phtml'; ?>

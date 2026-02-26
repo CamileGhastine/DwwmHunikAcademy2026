@@ -16,5 +16,7 @@ if ($route === 'index') {
     $contactController->index();
 } elseif($route === 'add') {
     $contactController->add();
+} elseif($route === 'show') {
+    $contactController->show();
 }
 
