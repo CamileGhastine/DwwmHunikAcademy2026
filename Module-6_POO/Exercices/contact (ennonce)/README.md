@@ -11,9 +11,9 @@
 
 | # | Fonctionnalité | Description |
 |---|---------------|-------------|
-| 1 | **CREATE** | Ajouter un contact avec les champs : Nom, Prénom, Email, Téléphone, Adresse |
-| 2 | **READ** | Afficher la liste de tous les contacts (Nom et Prénom) sous forme de tableau |
-| 3 | **READ** | Afficher le déatils d'un contact |
+| 1 | **READ** | Afficher la liste de tous les contacts (Nom et Prénom) sous forme de tableau |
+| 2 | **READ** | Afficher le déatils d'un contact |
+| 3 | **CREATE** | Ajouter un contact avec les champs : Nom, Prénom, Email, Téléphone, Adresse |
 | 4 | **UPDATE** | Modifier un contact existant (pré-remplissage du formulaire au clic) |
 | 5 | **DELETE** | Supprimer un contact avec une confirmation via un formulaire POST |
 
@@ -36,7 +36,7 @@
 |---|-------|-------------|
 | 8 | `?route=index` | Afficher tous les contacts |
 | 9 | `?route=show&id=X` | Afficher le détail d'un contact |
-| 10 | `?route=create` | Afficher le formulaire vide **et** traiter la soumission (POST) |
+| 10 | `?route=add` | Afficher le formulaire vide **et** traiter la soumission (POST) |
 | 11 | `?route=update&id=X` | Afficher le formulaire pré-rempli **et** traiter la soumission (POST) |
 | 12 | `?route=delete&id=X` | Supprimer un contact (POST) |
 

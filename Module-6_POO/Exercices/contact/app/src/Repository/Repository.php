@@ -1,6 +1,6 @@
 <?php
 
-namespace Biblio\App\Repository;
+namespace Contact\App\Repository;
 
 use PDO;
 
@@ -10,6 +10,6 @@ class Repository
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=mysql; dbname=librairy', 'user', 'pass');
+        $this->pdo = new PDO('mysql:host=mysql; dbname=book_adress', 'user', 'pwd');
     }
 }

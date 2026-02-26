@@ -1,8 +1,8 @@
 {
-    "name": "biblio/app",
+    "name": "contact/app",
     "autoload": {
         "psr-4": {
-            "Biblio\\App\\": "src/"
+            "Contact\\App\\": "src/"
         }
     },
     "authors": [

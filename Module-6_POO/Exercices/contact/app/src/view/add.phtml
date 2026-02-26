@@ -1,0 +1,18 @@
+<?php $title = 'Ajout d\'un contact'; ?>
+
+<?php ob_start() ?>
+
+<h1>Ajouter un contact</h1>
+
+<form action="?route=add" method="post">
+    <label for="nom">Nom</label> <input type="text" name="nom"><br>
+    <label for="prenom">Prénom</label> <input type="text" name="prenom"><br>
+    <label for="email">Courriel</label> <input type="email" name="email"><br>
+    <label for="telephone">Téléphone</label> <input type="phone" name="telephone"><br>
+    <label for="adresse">Adresse</label> <input type="text" name="adresse"><br>    
+    <input type="submit" value="Enregistrer">
+</form>
+
+<?php $content = ob_get_clean() ?>
+
+<?php require 'src/view/base.phtml' ?>
