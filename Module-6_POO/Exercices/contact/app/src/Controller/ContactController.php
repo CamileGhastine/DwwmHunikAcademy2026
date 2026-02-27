@@ -33,6 +33,8 @@ class ContactController
 
     public function add()
     {
+        $isNewContact = true;
+
         if (!empty($_POST)) {
             $contact = new Contact;
             $contact->setNom($_POST['nom'])
@@ -48,7 +50,7 @@ class ContactController
             exit;
         } 
 
-        require 'src/view/add.phtml';        
+        require 'src/view/add-update.phtml';        
     }
 
     public function delete()
@@ -65,6 +67,8 @@ class ContactController
 
     public function update()
     {
+        $isNewContact = false;
+        
         $id = $_GET['id'] ?? NULL;
 
         /** @var Contact $contact */
@@ -83,6 +87,6 @@ class ContactController
             exit;
         }
 
-        require ('src/view/update.phtml');
+        require ('src/view/add-update.phtml');
     }
 }

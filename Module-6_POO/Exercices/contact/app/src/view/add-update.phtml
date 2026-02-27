@@ -1,0 +1,23 @@
+<?php
+$h1 = $isNewContact ? 'Ajout d\'un contact' : 'Modification d\'un contact';
+$button = $isNewContact ? 'Enregistrer' : 'Modifier';
+?>
+
+<?php $title = 'Modification d\'un contact'; ?>
+
+<?php ob_start() ?>
+
+<h1><?= $h1 ?></h1>
+
+<form action="?route=update&id=<?= isset($contact) ? $contact->getId() : NULL ?>" method="post">
+    <label for="nom">Nom</label> <input type="text" name="nom" value="<?= isset($contact) ? $contact->getNom() : NULL ?>"><br>
+    <label for="prenom">Prénom</label> <input type="text" name="prenom" value="<?= isset($contact) ? $contact->getPrenom() : NULL ?>"><br>
+    <label for="email">Courriel</label> <input type="email" name="email" value="<?= isset($contact) ? $contact->getEmail() : NULL ?>"><br>
+    <label for="telephone">Téléphone</label> <input type="phone" name="telephone" value="<?= isset($contact) ? $contact->getTelephone() : NULL ?>"><br>
+    <label for="adresse">Adresse</label> <input type="text" name="adresse" value="<?= isset($contact) ? $contact->getAdresse() : NULL ?>"><br>    
+    <input type="submit" value="<?= $button ?>">
+</form>
+
+<?php $content = ob_get_clean() ?>
+
+<?php require 'src/view/base.phtml' ?>
