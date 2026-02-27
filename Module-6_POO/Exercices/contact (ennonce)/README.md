@@ -14,8 +14,9 @@
 | 1 | **READ** | Afficher la liste de tous les contacts (Nom et Prénom) sous forme de tableau |
 | 2 | **READ** | Afficher le déatils d'un contact |
 | 3 | **CREATE** | Ajouter un contact avec les champs : Nom, Prénom, Email, Téléphone, Adresse |
-| 4 | **UPDATE** | Modifier un contact existant (pré-remplissage du formulaire au clic) |
-| 5 | **DELETE** | Supprimer un contact avec une confirmation via un formulaire POST |
+| 4 | **DELETE** | Supprimer un contact avec une confirmation via un formulaire POST |
+| 5 | **UPDATE** | Modifier un contact existant (pré-remplissage du formulaire au clic) |
+
 
 
 ---

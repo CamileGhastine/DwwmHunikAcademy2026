@@ -50,4 +50,39 @@ class ContactController
 
         require 'src/view/add.phtml';        
     }
+
+    public function delete()
+    {
+        if (isset($_GET['id'])) {
+            $id = (int)$_GET['id'];
+
+            $this->contactRepo->delete($id);
+
+            header('Location: index.php');
+            exit;
+        }
+    }
+
+    public function update()
+    {
+        $id = $_GET['id'] ?? NULL;
+
+        /** @var Contact $contact */
+        $contact = $this->contactRepo->findById($id);
+
+        if (!empty($_POST)) {
+            // On hydrate l'objet contact de manière dynamique
+            foreach ($_POST as $key => $value) {
+                $action = 'set'. ucFirst($key);
+                $contact->$action($value);
+            }
+      
+            $this->contactRepo->update($contact);
+
+            header('Location: index.php');
+            exit;
+        }
+
+        require ('src/view/update.phtml');
+    }
 }

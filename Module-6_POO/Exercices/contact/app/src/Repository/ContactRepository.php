@@ -39,5 +39,26 @@ class ContactRepository extends Repository
             'adress' => $contact->getAdresse()
         ]);
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM contact WHERE id=:id";
+        $request = $this->pdo->prepare($sql);
+        $request->execute(['id' => $id]);
+    }
+
+    public function update(Contact $contact)
+    {
+        $sql = "UPDATE contact SET  nom=:nom, prenom=:prenom, email=:email, telephone=:telephone, adresse=:adresse WHERE id=:id";
+        $request = $this->pdo->prepare($sql);
+        $request->execute([
+            'nom' => $contact->getNom(),
+            'prenom' => $contact->getPrenom(),
+            'email' => $contact->getEmail(),
+            'telephone' => $contact->getTelephone(),
+            'adresse' => $contact->getAdresse(),
+            'id' => $contact->getId()
+        ]);    
+    }
 }
 

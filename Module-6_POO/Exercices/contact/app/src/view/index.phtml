@@ -6,7 +6,11 @@
 <a href="?route=add">➕</a>
 <?php foreach ($contacts as $contact) { ?>
 <ul>
-    <li><a href="?route=show&id=<?= $contact->getId() ?>"><?= ucfirst(htmlspecialchars($contact->getNom())) ?> <?= ucfirst(htmlspecialchars($contact->getPrenom())) ?></a></li>
+    <li><a href="?route=show&id=<?= $contact->getId() ?>">
+        <?= ucfirst(htmlspecialchars($contact->getNom())) ?> <?= ucfirst(htmlspecialchars($contact->getPrenom())) ?>
+        <a href="?route=update&id=<?= $contact->getId() ?>">✏️</a>
+        <a href="?route=delete&id=<?= $contact->getId() ?>">❌</a>
+    </a></li>
 </ul>
 <?php } ?>
 
