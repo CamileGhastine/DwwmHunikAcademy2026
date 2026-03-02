@@ -109,3 +109,6 @@ INSERT INTO note (id_user, subject, result) VALUES
 (10, 'Hist-Géo', 16.5),
 (10, 'Anglais', 19.0),
 (10, 'EPS', 18.0);
+
+UPDATE user SET firstname = CONVERT(BINARY CONVERT(firstname USING latin1) USING utf8mb4);
+UPDATE note SET subject = CONVERT(BINARY CONVERT(subject USING latin1) USING utf8mb4);

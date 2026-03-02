@@ -1,5 +1,5 @@
 {
-    "name": "contact/app",
+    "name": "bulletin/app",
     "autoload": {
         "psr-4": {
             "Notes\\App\\": "src/"

@@ -1,0 +1,31 @@
+<?php $title = 'Bulletin de notes' ?>
+
+<?php ob_start() ?>
+    <h1><?= ucfirst(htmlspecialchars($user->getLastname())) ?> <?= ucfirst(htmlspecialchars($user->getFirstname())) ?></h1>
+
+    <ul>
+        <?php foreach ($notes as $note) { 
+            /** @var Notes\App\Entity\User $user */
+        ?>
+            <li>
+                <?= ucfirst(htmlspecialchars($note->getSubject())) ?> : <?= htmlspecialchars($note->getResult()) ?> 
+            </li>
+        <?php } ?>        
+    </ul>
+
+    <?php if ($appreciation) { ?> 
+        <fieldset>
+            <legend>Commentaires</legend>
+            <p><?= htmlspecialchars($appreciation->getComment()) ?></p>
+            <p><strong><?= $appreciation->getMention() ? htmlspecialchars($appreciation->getMention()) : NULL ?></strong></p>
+            <p><a href="?route=update&id=<?= $appreciation->getid() ?>">✏️</a> <a href="?route=delete&id=<?= $appreciation->getId() ?>&id_user=<?= $user->getId() ?>">❌</a></p>
+        </fieldset>
+    <?php } else {?>
+        <p><a href="?route=add&id_user=<?= $user->getid() ?>">Remplir le bulletion</a></p>
+    <?php } ?>
+
+    <p><a href="index.php">Retour à la classe</a></p>
+
+<?php $content = ob_get_clean() ?>
+
+<?php require 'src/view/base.phtml'; ?>
