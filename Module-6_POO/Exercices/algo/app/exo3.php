@@ -11,20 +11,13 @@ $chiensTableau = [
 
 // 1) Créer une classe Chien avec les propriétés : race, sex, age, nom, les getters et les setters et un constructeur  pour initialiser toutes les propritées
 
-$chien1 =new Chien('caniche', NULL, 'F', 'toto', true);
-var_dump($chien1);
-echo '<br>';
-$chien2 =new Chien('doberman', 1, 'M', 'dober', false);
-var_dump($chien2);
-echo '<br>';
-
 class Chien
 {
     private $race;
     private $sex;
     private $age;
     private $nom;
-    private $vaccine;
+    private $estVaccine;
 
     public function __construct($race, $age, $sex, $nom, $vaccine)
     {
@@ -32,9 +25,14 @@ class Chien
         $this->age = $age;
         $this->sex = $sex;
         $this->nom = $nom;
-        $this->vaccine = $vaccine;
+        $this->estVaccine = $vaccine;
     }
     
+    public function __toString()
+    {
+        return "{$this->getNom()} est un {$this->getRace()} de {$this->getAge()} an" . ($this->getAge() > 1 ? 's' : '');
+    }
+
     /**
      * Get the value of race
      */ 
@@ -116,21 +114,21 @@ class Chien
     }
 
     /**
-     * Get the value of vaccine
+     * Get the value of estVaccine
      */ 
-    public function getVaccine()
+    public function estVaccine()
     {
-        return $this->vaccine;
+        return $this->estVaccine;
     }
 
     /**
-     * Set the value of vaccine
+     * Set the value of estVaccine
      *
      * @return  self
      */ 
-    public function setVaccine($vaccine)
+    public function setEstVaccine($estVaccine)
     {
-        $this->vaccine = $vaccine;
+        $this->estVaccine = $estVaccine;
 
         return $this;
     }
@@ -138,11 +136,17 @@ class Chien
 
 
 // 2) Partir d’un tableau $chienTableau contenant 6 tableaux associatifs (avec les mêmes clés que la classe), créer un tableau d’objets Chien.
-
-// Coder ici ...
+$chiensObjet = [];
+foreach ($chiensTableau as $chien) {
+    $chiensObjet[] = new Chien($chien['race'], $chien['age'], $chien['sex'], $chien['nom'], $chien['vaccine']);
+}
 
 
 // 3) Afficher grâce à la fonction __tostring tous les chiens vaccinés sous la forme : Rex est un Labrador de 3 ans (penser au S si besoin)
 
-// Coder ici ...
+foreach ($chiensObjet as $chien) {
+    if($chien->estVaccine()) {
+        echo $chien . '<br>';
+    }
+}
 

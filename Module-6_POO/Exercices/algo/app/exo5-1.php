@@ -4,7 +4,14 @@
 // toto123 -> *******
 $mdp = 'toto123';
 
-// Coder ici ...
+// *** Methode 1 ***
+//$mdpCache = '';
+//for ($i=0; $i < mb_strlen($mdp); $i++) { 
+//    $mdpCache .= '*';
+//}  
+
+// *** Méthode 2 ***
+$mdpCache = str_repeat('*', mb_strlen($mdp));
 
 echo "Votre mot de passe : $mdpCache";
 echo '<br>';
