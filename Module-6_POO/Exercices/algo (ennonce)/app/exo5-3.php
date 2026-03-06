@@ -12,3 +12,7 @@ $carte1 = "1234567890123456";
 
 echo "Votre CB : $carteCachee";
 echo '<br>';
+
+
+// Numéro de CB caché : adapter le code au cas où le numéro de CB compte des esapce.
+// 1234 5678 9012 3456 -> ************2456
