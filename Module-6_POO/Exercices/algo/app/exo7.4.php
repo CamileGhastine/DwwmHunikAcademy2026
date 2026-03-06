@@ -3,7 +3,7 @@
 // Créer une fonction appelée supprimerDoublons qui :
     // prend en paramètre un tableau
     // retourne un nouveau tableau sans doublons
-    // Typer les paramètres d'enrtées et la retoru de la fonction
+    // Typer les paramètres d'entrées et de sortie de la fonction
 
 
 $tab = [1, 2, 2, 3, 4, 4, 5];

@@ -17,7 +17,6 @@ function lesMotLePlusFrequent(string $phrase): array {
 }
 
 
-
 var_dump(motLePlusFrequent("le chat mange le chat"));         // → ["le", "chat"]
 var_dump(motLePlusFrequent("bonjour tout le monde bonjour")); // → ["bonjour"]
 var_dump(motLePlusFrequent("un deux trois"));                 // → ["un", "deux", "trois"]

@@ -1,24 +1,23 @@
 <?php 
 // Compression de chaine : écrire une fonction qui compresse une chaîne "aaabbbccddddee" → "a3b3c2d4e2"
 
-function compresser(string $chaine): string {
-    $tab = str_split($chaine);
-    $charCourant = null;
+function compresser(string $chaine): string 
+{
+    $prevChar = null;
     $result = '';
-    $count = 0;
-    foreach ($tab as $letter) {
-        if($letter === $charCourant) {
+    
+    foreach (str_split($chaine) as $letter) {
+        if ($letter === $prevChar)
+        {
             $count++;
             continue;
         }
-        if ($charCourant) {
-            $result .= $charCourant . $count;
-        }
-        $charCourant = $letter;
+        if($prevChar !== null) $result .= $prevChar . $count;
         $count = 1;
+        $prevChar = $letter;
     }
 
-    return $result . $charCourant . $count;
+    return $result . $letter . $count;
 }
 
 echo compresser("aaabbbccddddee"); // → a3b3c2d4e2

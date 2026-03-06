@@ -4,7 +4,7 @@
     // prend en paramètre un tableau de nombres
     // retourne le tableau trié du plus petit au plus grand
     // Typer les paramètres d'enrtées et la retoru de la fonction
-    // il est interdit d’utiliser sort()
+    // Typer les paramètres d'entrées et de sortie de la fonction
 
 $tab = [8, 3, 5, 1, 9];
 
