@@ -6,9 +6,19 @@
     // retourne combien de fois ce nombre apparaît dans le tableau
     // Typer les paramètres d'entrées et de sortie de la fonction
 
-$tab = [2, 4, 2, 5, 2, 7];
+$tab = [2, 4, 2, 5, 2, 7, 7];
 
-echo compterOccurrences($tab, 2);  // résultat : 3
+echo compterOccurrences($tab, 7);  // résultat : 3
 
 
-// Coder ici ...
+function compterOccurrences(array $tab,int $number): int
+{
+    $count = 0;
+    foreach ($tab as $element) {
+        if ($number === $element) {
+            $count++;
+        }
+    }
+
+    return $count;
+}

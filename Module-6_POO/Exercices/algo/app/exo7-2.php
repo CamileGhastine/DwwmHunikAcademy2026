@@ -9,5 +9,13 @@
 var_dump(extrairePairs([1,2,3,4,5]));    // résultat : [2,4]
 
 
+function extrairePairs(array $tab) : array
+{
+    $result = [];
 
-// Coder ici ...
+    foreach ($tab as $number) {
+        if($number % 2 === 0) $result[] = $number;
+    }
+
+    return $result;
+}
