@@ -65,3 +65,22 @@ console.log(sentence6);
 
 let sentence7 = `Bonjour, je suis ${person.firstname} ${person.lastname}, ${getGenre(person.male)} de ${getAge(person.yearOfBirth)} ans et je suis expert ${displaySkills(person.skills)}.`;
 console.log(sentence7);
+
+let name = prompt('Quel est votre nom ?');
+let year = prompt('Quelle est votre année de naissance ?');
+const user = {
+    name: name,
+    yearOfBirth: year
+}
+
+let age = currentYear - user.yearOfBirth;
+
+let confirmation = confirm(`Avez-vous bien ${age} ans ?`);
+
+if(confirmation && age >= 18) {
+    alert('Bienvenue sur le site des adultes coquins !');
+} else {
+    alert('Désolé, vous êtes trop jeune pour accéder à ce contenu.');
+}
+
+
