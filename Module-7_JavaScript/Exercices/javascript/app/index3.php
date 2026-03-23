@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire</title>
+    <script src="js/script3.js" defer></script>
 </head>
 <body>
     <form method="post">
@@ -34,15 +35,10 @@
 
         <label for="zip">Code postal :</label><br>
         <input type="number" id="zip" name="zip"><br><br>
-
+        <strong></strong>
         <button>Envoyer</button>
     </form>
 
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event){
-            event.preventDefault();
-            console.log(document.getElementById('firstname').value)
-        }) 
-    </script>
 </body>
 </html>
+
