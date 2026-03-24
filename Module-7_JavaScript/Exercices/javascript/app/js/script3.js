@@ -37,56 +37,24 @@ inputAge.addEventListener('change', (event) => {
 
 // Gère tous les champs à la soumission
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    try {
+        event.preventDefault();
 
-    let message = "";
-    let error = document.getElementById('error');
-    let motivations = [ ...authorisedMotivations];
+        // Suppression des erreurs précement affichées (s'il y en avait)
+        let error = document.getElementById('error');
+        if (error) error.remove();
 
-    if (error) error.remove();
-    let name = inputFirstname.value;
-    let age = inputAge.value;
-    let level = inputLevel.value;
+        // Validation des champs
+        handleZipCode();
+        motivationsUser = handleMotivations();
+        handleLevel()
+        handleAge();
+        handleFirstname();
 
-    message = handleZipCode();
-
-    //GERE LES MOTIVATIONS
-    inputsMotivations.forEach((motivation) => {
-        if (motivation.checked) {
-            let index = authorisedMotivations.indexOf(motivation.value);
-            if (index < 0) {
-                message = "Vos motivations pour apprendre le JavaScript ne sont pas autorisées."
-            } else {
-                motivations.splice(index, 1)
-                motivationsUser.push(motivation.value);
-            }
-        }
-    })
-
-    if (authorisedLevels.indexOf(level) < 0) {
-        message = "Le niveau choisi n'est pas autorisé."
-    }
-
-    // GERE AGE
-    if (age === "") {
-        message = "L'age doit être rempli";
-    } else if (!Number(age)) {
-        message = "L'age doit être un nombre";
-    } else if (Number(age) < 0 || Number(age) > 150) {
-        message = "L'age doit être compris entre 0 et 150";
-    }
-
-    // GERE LE NOM
-    if (name === "") {
-        message = "Le nom doit être rempli";
-    } else if (name.length > 10) {
-        message = "Le nom ne peut pas dépasser 10 caractères";
-    }
-
-    // GERE LES ERREURS
-    if (message != "") {
+        // A faire : Envoyer toutes ces données à la BDD 
+    } catch (error) {
         let errorMessage = document.createElement('p');
-        errorMessage.textContent = message;
+        errorMessage.textContent = error.message;
         errorMessage.setAttribute('id', 'error')
         document.querySelector('button').after(errorMessage)
     }
@@ -95,6 +63,49 @@ form.addEventListener('submit', (event) => {
 function handleZipCode() {
     let regex = new RegExp("^[0-9]{5}$");
     if(!regex.test(inputZip.value)) {
-        return "Le code postal n'est pas valide."
+        throw new Error("Le code postal n'est pas valide.");
+    }
+}
+
+// Renvoie le tableau des motivation checkée ou le message d'erreur
+function handleMotivations() {
+    let motivations = [ ...authorisedMotivations];
+    inputsMotivations.forEach((motivation) => {
+        if (motivation.checked) {
+            let index = authorisedMotivations.indexOf(motivation.value);
+            if (index < 0) {
+               throw new Error("Vos motivations pour apprendre le JavaScript ne sont pas autorisées.");
+            } else {
+                motivations.splice(index, 1)
+                motivationsUser.push(motivation.value);
+                return motivationsUser;
+            }
+        }
+    })
+}
+
+function handleLevel() {
+    if (authorisedLevels.indexOf(inputLevel.value) < 0) {
+        throw new Error("Le niveau choisi n'est pas autorisé.");
+    }
+}
+
+function handleAge() {
+    let age = inputAge.value.trim()
+    if (age === "") {
+        throw new Error("L'age doit être rempli");
+    } else if (!Number(age)) {
+        throw new Error("L'age doit être un nombre");
+    } else if (Number(age) <= 0 || Number(age) > 150) {
+        throw new Error("L'age doit être compris entre 0 et 150");
+    }
+}
+
+function handleFirstname() {
+    let name = inputFirstname.value
+    if (name === "") {
+        throw new Error("Le nom doit être rempli");
+    } else if (name.length > 10) {
+        throw new Error("Le nom ne peut pas dépasser 10 caractères");
     }
 }

@@ -1,0 +1,25 @@
+<?php $title = 'Accueil'; ?>
+
+<?php ob_start() ?>
+    <h1>Commenter</h1>
+    <form action="" method="post">
+        <input type="text" name="content">
+        <input type="submit" value="Commenter">
+    </form>
+    <ul>
+        <?php foreach ($comments as $comment) { 
+            /** @var Notes\App\Entity\comment $comment */
+        ?>
+            <li>
+                <?= $comment->getLiked() ?> <span class="like">👍</span> - 
+                <?= htmlspecialchars($comment->getContent()) ?>
+            </li>
+        <?php } ?>
+    </ul>
+    <p><a href="#" id="seeMore">Voir plus ...</a></p>
+
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require '../src/view/base.phtml' ?>
+

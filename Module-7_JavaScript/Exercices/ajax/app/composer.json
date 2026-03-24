@@ -1,0 +1,14 @@
+{
+    "name": "ajax/app",
+    "autoload": {
+        "psr-4": {
+            "Ajax\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Camile"
+        }
+    ],
+    "require": {}
+}
