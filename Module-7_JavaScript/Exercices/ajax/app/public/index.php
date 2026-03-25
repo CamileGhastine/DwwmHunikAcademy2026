@@ -17,4 +17,6 @@ if ($route === 'index') {
     $controller->seeMoreAjax();
 } elseif ($route === 'likeAjax') {
     $controller->likeAjax();
+} elseif ($route === 'addAjax') {
+    $controller->addAjax();
 }

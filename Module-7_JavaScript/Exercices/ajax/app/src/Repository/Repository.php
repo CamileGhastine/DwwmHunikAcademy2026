@@ -45,4 +45,11 @@ class Repository
         $request = $this->pdo->prepare($sql);
         $request->execute(['id' => $id]);
     }
+
+    public function add($content)
+    {
+        $sql = "INSERT INTO comment(content) VALUES(:content)";
+        $request = $this->pdo->prepare($sql);
+        $request->execute(['content' => $content]);
+    }
 }

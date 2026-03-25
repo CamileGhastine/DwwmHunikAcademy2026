@@ -2,6 +2,7 @@
 
 namespace Ajax\App\Controller;
 
+use Ajax\App\Entity\Comment;
 use Ajax\App\Repository\Repository;
 
 class Controller
@@ -28,6 +29,18 @@ class Controller
     }
 
     public function likeAjax() {
+        $id = $_GET['id'];
+        $this->repository->like($id);
+        $comment = $this->repository->find($id);
+        echo json_encode($comment);
+    }
 
+    public function addAjax()
+    {
+        //$data = json_decode(file_get_contents('php://input'), true);
+        //$this->repository->add($data['content']);
+        //echo json_encode($content);
     }
 }
+
+

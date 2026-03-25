@@ -18,16 +18,35 @@ function displayComments(comments) {
     }
     comments.forEach(comment => {
         let li = document.createElement('li');
-        li.innerHTML = comment.liked + ' <span class="like">👍</span> - ' +comment.content;
+        li.innerHTML = comment.liked + ' <span class="like" data-id="' + comment.id + '">👍</span> - ' +comment.content;
         document.querySelector('ul'). appendChild(li)
     });
+    likes = document.querySelectorAll('.like');
 }
 
-// contacter les erveur quand on clique sur le premier 👍
-// recuperer un reponse du serveur (par exemple "toto")
-// recuperer le commentaire sur lequel vous avez cliquez
 
-//bonus
-// Apliquer cela a tous les pouces (avec un foreach)
-// Mettre à jour le compteur des like
+let likes = document.querySelectorAll('.like');
+likes.forEach(like => {
+    like.addEventListener('click', () => {
+        fetch('?route=likeAjax&id=' + like.dataset.id)
+        .then(response => response.json())
+        .then(comment => like.previousElementSibling.textContent = comment.liked)
+        .catch(error => console.log(error.message))
+    })
+})
+
+let form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    fetch('?route=addAjax', {
+        method: 'POST',
+        headers: {'content-Type': 'application/json'},
+        body: JSON.stringify({"content": form.content.value})
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+})
+
+
 
