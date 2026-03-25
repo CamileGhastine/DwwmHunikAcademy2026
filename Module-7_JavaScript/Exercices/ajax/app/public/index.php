@@ -13,4 +13,8 @@ $controller = new Controller;
 
 if ($route === 'index') {
     $controller->index();
+} elseif ($route === 'seeMoreAjax') {
+    $controller->seeMoreAjax();
+} elseif ($route === 'likeAjax') {
+    $controller->likeAjax();
 }

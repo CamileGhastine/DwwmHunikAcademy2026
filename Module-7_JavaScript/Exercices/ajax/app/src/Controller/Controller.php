@@ -19,4 +19,15 @@ class Controller
 
         require '../src/view/index.phtml';
     }
+
+    public function seeMoreAjax()
+    {
+        $commentBatch = $_GET['commentBatch'];
+        $comment = $this->repository->findAll( 10 * $commentBatch, 10, true);
+        echo json_encode($comment);
+    }
+
+    public function likeAjax() {
+
+    }
 }

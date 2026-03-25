@@ -11,12 +11,13 @@
             /** @var Notes\App\Entity\comment $comment */
         ?>
             <li>
-                <?= $comment->getLiked() ?> <span class="like">👍</span> - 
+                <span><?= $comment->getLiked() ?></span> 
+                <span class="like" data-id="<?= $comment->getId() ?>">👍</span> - 
                 <?= htmlspecialchars($comment->getContent()) ?>
             </li>
         <?php } ?>
     </ul>
-    <p><a href="#" id="seeMore">Voir plus ...</a></p>
+    <p id="seeMoreP"><a href="#" id="seeMore">Voir plus ...</a></p>
 
 
 <?php $content = ob_get_clean(); ?>
