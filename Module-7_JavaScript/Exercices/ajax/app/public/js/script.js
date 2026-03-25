@@ -23,5 +23,11 @@ function displayComments(comments) {
     });
 }
 
+// contacter les erveur quand on clique sur le premier 👍
+// recuperer un reponse du serveur (par exemple "toto")
+// recuperer le commentaire sur lequel vous avez cliquez
 
+//bonus
+// Apliquer cela a tous les pouces (avec un foreach)
+// Mettre à jour le compteur des like
 
