@@ -37,9 +37,9 @@ class Controller
 
     public function addAjax()
     {
-        //$data = json_decode(file_get_contents('php://input'), true);
-        //$this->repository->add($data['content']);
-        //echo json_encode($content);
+        $data = json_decode(file_get_contents('php://input'), true);
+        $comment = $this->repository->add($data['content']);
+        echo json_encode($comment);
     }
 }
 

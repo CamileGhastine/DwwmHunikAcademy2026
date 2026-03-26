@@ -48,8 +48,16 @@ class Repository
 
     public function add($content)
     {
-        $sql = "INSERT INTO comment(content) VALUES(:content)";
+        $sql = "INSERT INTO comment(content) VALUES(:content);";
         $request = $this->pdo->prepare($sql);
         $request->execute(['content' => $content]);
+
+        $lastId = $this->pdo->lastInsertId();
+        $sql2 = "SELECT * FROM comment WHERE id = :id";
+        $request2 = $this->pdo->prepare($sql2);
+        $request2->execute(['id' => $lastId]);
+        $request2->setFetchMode(PDO::FETCH_ASSOC);
+
+        return $request2->fetch();
     }
 }
