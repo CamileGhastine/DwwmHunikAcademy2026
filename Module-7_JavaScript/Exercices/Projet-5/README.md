@@ -1,6 +1,6 @@
 # 📒 Morpion
 
-Créer le jeu du morpion en Vanillia JS, HTML et CSS.
+Créer le jeu du morpion en Vanillia JS, HTML et CSS sans aucune aide de l'IA.
 
 ⚠️ Aucune Connexion avec le serveur (sauf pour charger la page)
 
