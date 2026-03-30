@@ -1,0 +1,33 @@
+    body { font-family: sans-serif; background: #fff; }
+
+    .plateau {
+      border-collapse: collapse;
+      margin: 2rem auto;
+    }
+    .plateau td {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 48px;
+      border: 3px solid #222;
+      cursor: pointer;
+    }
+    .plateau td:first-child { border-left: none; }
+    .plateau td:last-child  { border-right: none; }
+    .plateau tr:first-child td { border-top: none; }
+    .plateau tr:last-child  td { border-bottom: none; }
+    .plateau td:hover:empty { background: #f5f5f5; }
+    .x { color: #185FA5; }
+    .o { color: #993C1D; }
+    .gagnant { background: #d4f5d4; }
+
+    #msg { text-align: center; }
+    .green {color: green;}
+    button {
+      display: block;
+      margin: 1rem auto;
+      padding: 8px 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
