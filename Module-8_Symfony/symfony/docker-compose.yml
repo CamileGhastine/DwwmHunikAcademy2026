@@ -1,9 +1,12 @@
 services:
   
   php:
-    build: ./docker/php
+    build:
+      context: ./docker/php
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
     container_name: sf_php
-    user: "1000:1000"
     volumes:
       - ./app:/var/www/html
     depends_on:
@@ -25,13 +28,14 @@ services:
     container_name: sf_mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
+      #MYSQL_DATABASE: symfony
       MYSQL_USER: user
       MYSQL_PASSWORD: pwd
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   phpmyadmin:
     image: phpmyadmin
@@ -42,14 +46,6 @@ services:
       PMA_HOST: mysql
     depends_on:
       - mysql
-  
-  mailpit:
-    image: axllent/mailpit
-    container_name: sf_mailpit
-    ports:
-      - "8025:8025"  # Interface web
-      - "1025:1025"  # SMTP
 
 volumes:
   mysql_data:
-
