@@ -1,12 +1,8 @@
 services:
   
   php:
-    build:
-      context: ./docker/php
-      args:
-        USER_ID: ${USER_ID:-1000}
-        GROUP_ID: ${GROUP_ID:-1000}
-    container_name: sf_php
+    build: ./docker/php
+    container_name: symfony_php
     volumes:
       - ./app:/var/www/html
     depends_on:
@@ -14,7 +10,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: sf_nginx
+    container_name: symfony_nginx
     ports:
       - "8080:80"
     volumes:
@@ -25,21 +21,21 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: sf_mysql
+    container_name: symfony_mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      #MYSQL_DATABASE: symfony
+      MYSQL_DATABASE: symfony
       MYSQL_USER: user
       MYSQL_PASSWORD: pwd
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      #- ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   phpmyadmin:
     image: phpmyadmin
-    container_name: sf_phpmyadmin
+    container_name: symfony_phpmyadmin
     ports:
       - "8081:80"
     environment:
