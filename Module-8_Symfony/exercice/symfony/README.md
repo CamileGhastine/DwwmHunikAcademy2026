@@ -51,14 +51,18 @@ git push -u origin main
 
 6. Builder et lancer les conteneurs :
 
-Arréter si nécessaire les conteneurs qui seraient en conflit.
-Ou arréter tous les conteneurs 
+```bash
+docker compose up -d --build
+```
+
+Si nécessaire arréter les conteneurs qui seraient en conflit.
+Ou arréter tous les conteneurs en une seule commande :
 ```bash
 docker stop $(docker ps -q)
 ```
-
+Ou plus radical, supprimer tous les conteneurs en une seule commande :
 ```bash
-docker compose up -d --build
+docker rm -f $(docker ps -qa)
 ```
 
 7. Installer Symfony dans le conteneur PHP :

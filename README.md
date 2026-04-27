@@ -8,9 +8,8 @@ Développeur web et web mobile — Promotion 2026
 - [x] Module 2 : Intégration HTML / CSS  
 - [x] Module 3 : Les bases de PHP  
 - [x] Module 4 : Accès aux données  
-- [ ] Module 5 : Organiser son code  
-- [ ] Module 6 : Les bases de JavaScript  
-- [ ] Module 7 : La POO en PHP  
-- [ ] Module 8 : Projet en autonomie  
-- [ ] Module 9 : Les bases de Symfony  
-- [ ] Module 10 : Développeur augmenté
+- [x] Module 5 : MVC  
+- [x] Module 6 : La POO en PHP
+- [x] Module 7 : Les bases de JavaScript  
+- [x] Module 8 : Symfony  
+- [ ] Module 9 : Développeur augmenté
