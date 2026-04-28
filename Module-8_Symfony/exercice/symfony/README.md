@@ -98,7 +98,7 @@ MESSENGER_TRANSPORT_DSN=sync://
 Accéder au conteneur PHP :
 
 ```bash
-docker exec -it <nom_du_conteneur_php> bash
+docker exec -it <nom_du_conteneur_php> sh
 ```
 
 Arrêter les conteneurs :
