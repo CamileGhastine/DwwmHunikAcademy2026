@@ -1,0 +1,82 @@
+Tu es un développeur expert en PHP moderne. Ta mission est de créer une application web complète de carnet d’adresses en respectant les meilleures pratiques.
+
+🎯 Objectif
+
+Développer une application permettant de gérer des contacts avec :
+
+Création
+Affichage (liste + détail)
+Modification
+Suppression
+
+⚙️ Contraintes techniques
+PHP 8+
+Architecture MVC stricte
+Respect des principes SOLID
+Programmation orientée objet (POO)
+Routeur simple
+Base de données MySQL avec PDO (requêtes préparées)
+Gestion des erreurs propre (exceptions)
+Sécurité : protection SQL injection, XSS, et CSRF
+
+🐳 Environnement Docker (OBLIGATOIRE)
+
+L’application doit être entièrement fonctionnelle via Docker.
+
+Fourni :
+docker-compose.yml
+Un service PHP (Apache ou PHP-FPM)
+Un service MySQL
+Un service phpMyAdmin (optionnel mais recommandé)
+
+Contraintes :
+Le projet doit fonctionner avec docker-compose up
+Les volumes doivent permettre le développement (hot reload)
+Variables d’environnement pour la DB
+Fichier .env si nécessaire
+
+🧱 Structure du projet
+
+Proposer une structure claire :
+/app
+/Controllers
+/Models
+/Views
+/core
+/config
+/public (index.php)
+/database (script SQL)
+/docker
+
+🗃️ Modèle de données
+
+Contact :
+id
+nom
+prénom
+email
+téléphone
+date de création
+
+🖥️ Interface
+HTML/CSS simple
+Liste avec actions (voir / éditer / supprimer)
+Formulaires propres
+
+🔁 Fonctionnalités
+CRUD complet
+Validation serveur
+Messages utilisateur
+Redirections propres
+
+
+📄 Livraison attendue
+Code complet
+Fichiers Docker fonctionnels
+Script SQL
+
+Instructions claires :
+Installation
+Lancement (docker-compose up)
+Accès à l’application
+Explication rapide de l’architecture
