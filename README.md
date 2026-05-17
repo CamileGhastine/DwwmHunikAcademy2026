@@ -12,4 +12,4 @@ Développeur web et web mobile — Promotion 2026
 - [x] Module 6 : La POO en PHP
 - [x] Module 7 : Les bases de JavaScript  
 - [x] Module 8 : Symfony  
-- [ ] Module 9 : Développeur augmenté
+- [x] Module 9 : Développeur augmenté
