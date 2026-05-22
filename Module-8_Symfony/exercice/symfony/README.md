@@ -20,7 +20,13 @@ cd mon-projet
 - le dossier docker
 - le fichier docker-compose.yml
 
-3. Adapter le docker-compose.yaml
+3. Gérer les droits
+
+```bash
+sudo chown -R $(id -u):$(id -g) ./app
+```
+
+4. Adapter le docker-compose.yaml
 
 - Renommer les conteneurs
 
@@ -30,13 +36,13 @@ ex : symfony_php --> mon_super_site_php
 - Définir vos identifiants de connexion à mysql (mysql_user, mysql_password)
 - Définir le nom de votre base de données (mysql_database)
 
-4. Initialiser Git :
+5. Initialiser Git :
 
 ```bash
 git init
 ```
 
-5. Initialisation de GitHub
+6. Initialisation de GitHub
 
 - Créer un repo sur GitHub
 - Lier le projet local :
@@ -49,7 +55,7 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
-6. Builder et lancer les conteneurs :
+7. Builder et lancer les conteneurs :
 
 ```bash
 docker compose up -d --build
@@ -65,7 +71,7 @@ Ou plus radical, supprimer tous les conteneurs en une seule commande :
 docker rm -f $(docker ps -qa)
 ```
 
-7. Installer Symfony dans le conteneur PHP :
+8. Installer Symfony dans le conteneur PHP :
 
 ```bash
 docker exec -it <nom_du_conteneur_php> sh
